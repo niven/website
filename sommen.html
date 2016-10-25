@@ -1,0 +1,602 @@
+<html>
+
+<head>
+	<title>Sommen</title>
+
+<style type="text/css">
+
+* {
+	font-size: xx-large;
+	font-family: Helvetica;
+}
+
+.box {
+	border-radius: 1em;
+	padding: 1ex 1em;
+	width: 14em;
+	height: 2ex;
+	margin: 0 auto;
+}
+
+.deltaScore {
+	position:absolute;
+	font-size: large;
+	-webkit-transition: all 2s ease-out; /* Safari */
+    transition: all 2s ease-out;
+}
+
+.deltaScore.positive {
+	color: blue;
+}
+
+.deltaScore.negative {
+	color: red;
+}
+
+#stats {
+	background-color: wheat;
+	padding-bottom: 1em;
+}
+
+#stats tr {
+	vertical-align: top;
+}
+
+#score {
+	text-align: left;
+}
+
+#bonus {
+	text-align: center;
+}
+
+#points {
+	text-align: right;
+}
+
+.res_neutral {
+	border-radius: 1em;
+	padding: 1ex 1em;
+	width: 14em;
+	height: 2ex;
+	margin: 0 auto;
+	text-align: center;
+	background-color: oldlace;
+}
+
+#q {
+	background-color: powderblue;
+	text-align: center;
+}
+
+#q input {
+	border-radius: 0.1em;
+	width: 5em;
+}
+
+table.summary {
+	margin: 0 auto;
+}
+
+table.summary tr th {
+	font-variant: small-caps;
+	font-weight: normal;
+	padding: 1ex 1em;
+}
+
+table.summary tr td {
+	text-align: center;
+}
+
+.color_0 { background-color: red; }
+.color_1 { background-color: red; }
+.color_2 { background-color: orangered; }
+.color_3 { background-color: darkorange; }
+.color_4 { background-color: orange; }
+.color_5 { background-color: gold; }
+.color_6 { background-color: yellow; }
+.color_7 { background-color: yellow; }
+.color_8 { background-color: springgreen; }
+.color_9 { background-color: chartreuse; }
+.color_10 { background-color: lime; }
+
+.timer {
+	font-size: xx-small;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+// sum types
+var MUL = 1;
+var DIV = 2;
+var division_with_remainders = false;
+
+var countdown_time = {
+	"mul": 1400,
+	"div": 5000
+};
+
+var extra_time_after_error = 0;
+
+function num( max ) {
+	return Math.ceil(Math.random() * max);
+}
+
+function random_sum_type() {
+	
+	if( numbers["mul"].length > 0 && numbers["div"].length > 0 ) {
+		return Math.random() < 0.5 ? MUL : DIV;
+	} else if( numbers["mul"].length > 0 ) {
+		return MUL;
+	} else if( numbers["div"].length > 0 ) {
+		return DIV;
+	} else {
+		alert("Fail!");
+	}
+	
+}
+
+function Sum() {
+	
+	var sum_type = random_sum_type();
+	var sum_type_name = sum_type == DIV ? "div" : "mul";
+	var test_num = numbers[sum_type_name][ Math.floor(Math.random() * numbers[sum_type_name].length) ];
+	var other_num = -1;
+	if( sum_type == DIV ) {
+		other_num = test_num * num( 10 ); // limit these to multiplication of 10
+		if( division_with_remainders ) { // optional remainder
+			other_num += num( test_num - 1 ); // num() is inclusive so make sure the remainder part is less than the test_num
+		}
+	}
+	if( sum_type == MUL ) {
+		other_num = num( 10 ); 
+	}
+
+	return {
+		"test_num": test_num,
+		"type": sum_type,
+		"num": other_num
+	};
+}
+
+function Eq( a, b ) {
+	return a.type == b.type && a.test_num == b.test_num && a.num == b.num;
+}
+
+function string_from_sum( sum ) {
+	
+	var result = "empty";
+	
+	if( sum.type == MUL ) {
+		result = sum.test_num + " x " + sum.num + " = ";
+	}
+	if( sum.type == DIV ) {
+		result = sum.num + " / " + sum.test_num + " = ";
+	}
+	
+	return result;
+}
+
+var current_sum;
+var last_sum;
+var failed_sums = [];
+
+
+var x;
+var y;
+var fails = [];
+var score = 0;
+var bonusMultiplier = 0.2;
+var multiplierReward = 0.05;
+var target = 0;
+var answer;
+var min_score = 4; // this is the min score. possible points are max( min_score, min(x, y) )
+var initial_points = 0;
+var base_score = 400;
+var time = 10;
+var startTime;
+var intervalID;
+var numbers = [];
+var stats = [];
+var last_sum = "x";
+var begin_time;
+var timer_fmt = new Intl.DateTimeFormat("en-US", {minute: "numeric", second: "numeric"}); 
+var max_correct = 0;
+
+
+/*
+	Creates a random sum from the selected numbers[] or a repeat of a failed one (40%)
+	Only if there are at least 2 failed.
+	Never repeats the same sums.
+
+	TODO: should really keep track of every sum answered so the subject can't avoid a specific sum always and still finish
+			Subject has not demonstrated that behaviour yet.
+*/
+function makeSum() {
+
+	// we delete, so not all indices exist
+	var failed = Object.keys(failed_sums);
+
+	// >1 so to never unfinite loop when there is 1 fail and we try to repeat but
+	// we can only generate the last one.
+	// 40% chance to repeat failed sum
+	if( Math.random() < 0.4 && failed.length > 1 ) {
+
+		// keep repeating until we have a nonrepeat
+		var failed_index;
+		do {
+			failed_index = Math.floor( Math.random()*failed.length);
+			current_sum = failed_sums[ failed[ failed_index ] ];
+		} while( Eq(last_sum, current_sum) );
+		
+		delete failed_sums[ failed_index ];
+	} else {
+
+		do {
+			current_sum = Sum();
+		} while( Eq(current_sum, last_sum) );
+	}
+	
+	last_sum = current_sum;
+	
+	document.getElementById("som").innerHTML = string_from_sum( current_sum );
+	
+	startTime = Date.now();
+	initial_points = Math.max( min_score, Math.ceil( (current_sum.test_num + current_sum.num )/2 ) );
+
+	intervalID = window.setInterval( countdown, 100 );
+	
+	document.getElementById("ans").select();
+}
+
+function countdown() {
+	var elapsed_millis = Date.now() - startTime;
+	var elapsed = Math.floor( elapsed_millis / 1000 );
+	time = initial_points - elapsed;
+	if( time < 1 ) {
+		time = 1;
+	}
+
+	if( elapsed_millis > extra_time_after_error + countdown_time[ current_sum.type == MUL ? "mul" : "div" ] ) {
+		document.getElementById("som").style.color = "powderblue";
+	}
+	document.getElementById("score").innerHTML = "HP: " + Math.round(target-score) + "<br><span class=\"timer\">tijd: " + timer_fmt.format( (Date.now() - begin_time) ) + "</span>";
+	document.getElementById("bonus").innerHTML = "Bonus: " + (Math.round(10*bonusMultiplier)/10);
+	document.getElementById("points").innerHTML = "Punten: " + time;
+}
+
+function check_answer( sum, answer_string ) {
+	
+	var result = { 
+		correct: false,
+		right_answer: "UNK",
+	};
+	
+	switch( sum.type ) {
+		case MUL: {
+			var res = parseInt( answer_string );
+			var ans = sum.test_num * sum.num;
+			result.correct = ans == res;
+			result.right_answer = ans;
+		} break;
+		case DIV: {
+			var parts = answer_string.split(" ");
+			var ans = parseInt( parts[0] );
+			var remainder = parts.length == 2 ? parseInt( parts[1] ) : 0;
+			var main = Math.floor(sum.num / sum.test_num);
+			var rem = sum.num % sum.test_num;
+			if( rem == 0 ) {
+				result.correct = ans == main;
+			} else {
+				result.correct = parts.length == 2 
+									&& (ans == main) 
+									&& (remainder == rem)
+			}
+			result.right_answer = sum.test_num +" x <i>"+main+"</i>";
+			if( rem != 0 ) {
+				result.right_answer += " + <i>" + rem + "</i>";
+			}
+		} break;
+	default:
+		console.log("Unknown sum type: " + sum.type );
+	}
+	
+	return result;
+}
+
+function process(e) {
+	var ans = document.getElementById("ans");
+	var res = document.getElementById("res");
+
+	if( e.keyCode == 13 ) {
+
+		var sum_type_name = current_sum.type == DIV ? "div" : "mul";
+		var answer_result = check_answer( current_sum, ans.value );
+
+		if( answer_result.correct ) {
+			max_correct++;
+			bonusMultiplier += multiplierReward;
+			res.innerHTML = max_correct + " Goed!";
+			res.style.backgroundColor = "springgreen";
+			var scoreDelta = time * bonusMultiplier; 
+			score += scoreDelta;
+			stats[sum_type_name][current_sum.test_num].correct++;
+			extra_time_after_error = 0;
+			
+			showDeltaScore(-scoreDelta, document.getElementById("score"));
+		} else {
+			max_correct = 0;
+			bonusMultiplier = 1;
+			res.innerHTML = string_from_sum( current_sum ) + answer_result.right_answer + " 	(niet " + ans.value + ")";
+			res.style.backgroundColor = "tomato";
+			score -= 2;
+			stats[sum_type_name][current_sum.test_num].fail++;
+			failed_sums.push( current_sum );
+			extra_time_after_error = 3000; // extra time to read over the mistake
+			showDeltaScore(2, document.getElementById("score"));			
+		}
+		
+		clearInterval( intervalID );
+		if( score >= target ) {
+			showResults( "Tafels", numbers["mul"], stats["mul"] );
+			showResults( "Delen", numbers["div"], stats["div"] );
+			document.getElementById("main").style.display = "none";
+			return;
+		}
+
+		makeSum();
+		ans.value = "";
+		document.getElementById("som").style.color = "black";
+		ans.select();
+	} else if( (e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105) ) {
+		// accept digits
+	} else if( e.keyCode == 8 || e.keyCode == 32 ) {
+		// swallow backspace to avoid double deletion
+		// swallow space to allow typing division as answer space remainder
+	} else {
+		ans.value = ans.value.substring( 0, ans.value.length -1 );
+	}
+
+}
+
+function showDeltaScore(scoreDelta, scoreElement) {
+	
+	var scoreRect = scoreElement.getBoundingClientRect();
+	var deltaElement = document.createElement("div");
+	deltaElement.style["left"] = (scoreRect.right * 0.95) + "px";
+	deltaElement.style["top"] = scoreRect.top + "px";
+	deltaElement.className = "deltaScore " + (scoreDelta>0?"positive":"negative");
+	deltaElement.innerText = "" + Math.round(scoreDelta);
+	document.body.appendChild(deltaElement);
+	
+	setTimeout(function(){deltaElement.style["top"] = -10 + "px";}, 10);
+	setTimeout(function(){deltaElement.remove();}, 2000);
+}
+
+function start() {
+	
+	var session_count = sessionStorage.getItem("sommen_count");
+	if( session_count ) {
+		session_count++;
+	} else {
+		session_count = 1;
+	}
+
+	sessionStorage.setItem("sommen_count", session_count);
+	
+	numbers = {
+		"mul": [],
+		"div": [],
+	}
+	stats = {
+		"mul": [],
+		"div": [],
+	};
+
+	// check MULs
+	for(var i=1; i<=12; i++) {
+		stats["mul"][i] = { "correct": 0, "fail": 0 };
+		var cb = document.getElementById("c"+i);
+		if( cb.checked ) {
+			numbers["mul"].push(i);
+		}
+	}
+
+	// check DIVs
+	for(var i=2; i<=12; i++) {
+		stats["div"][i] = { "correct": 0, "fail": 0 };
+		var cb = document.getElementById("d"+i);
+		if( cb.checked ) {
+			numbers["div"].push(i);
+		}
+	}
+	// check remainders
+	division_with_remainders = document.getElementById("rem").checked;
+	
+	if( numbers["mul"].length == 0 && numbers["div"].length == 0 ) {
+		return;
+	}
+	
+	target = base_score + numbers["mul"].length * 50 + numbers["div"].length * 50;
+	
+	makeSum();
+	document.getElementById('setup').style.display='none';
+	document.getElementById('main').style.display='block';
+	document.getElementById("ans").select();
+	begin_time = Date.now();
+}
+
+function showResults(title, numbers, stats) {
+
+	var tbl = document.getElementById(title);
+
+	while( tbl.hasChildNodes() ) {
+		tbl.removeChild( tbl.childNodes[0] );
+	}
+
+	var cap = document.createElement("caption");
+	cap.appendChild( document.createTextNode("Resultaten " + title + " (" + timer_fmt.format( (Date.now() - begin_time) ) + "	)") );
+	tbl.appendChild( cap );
+	
+	var tr = document.createElement("tr");
+	var th = document.createElement("th");
+	th.appendChild( document.createTextNode("Welke") );
+	tr.appendChild( th );
+
+	th = document.createElement("th");
+	th.appendChild( document.createTextNode("Goed") );
+	tr.appendChild( th );
+	
+	th = document.createElement("th");
+	th.appendChild( document.createTextNode("Fout") );
+	tr.appendChild( th );
+	
+	th = document.createElement("th");
+	th.appendChild( document.createTextNode("Score") );
+	tr.appendChild( th );
+	
+
+	tbl.appendChild(tr);
+
+	var td;
+	var total_correct = 0;
+	var total_fail = 0;
+	var perc;
+	for(var i=0; i<numbers.length; i++) {
+		
+		tr = document.createElement("tr");
+		td = document.createElement("td");
+		td.appendChild( document.createTextNode( numbers[i] ) );
+		tr.appendChild( td );
+		
+		var correct = stats[ numbers[i] ].correct;
+		total_correct += correct;
+		var fail = stats[ numbers[i] ].fail;
+		total_fail += fail;
+		
+		td = document.createElement("td");
+		td.appendChild( document.createTextNode( correct ) );
+		tr.appendChild( td );
+		td = document.createElement("td");
+		td.appendChild( document.createTextNode( fail ) );
+		tr.appendChild( td );
+		td = document.createElement("td");
+	    perc = (100 * correct / (correct+fail)).toFixed(0);
+		if( isNaN( perc ) ) {
+			perc = 100;
+		}
+		td.appendChild( document.createTextNode( perc + "%" ) );
+		tr.appendChild( td );
+		
+		tr.setAttribute("class", "color_" + (perc/10).toFixed(0) );
+		
+		
+		tbl.appendChild( tr );
+	}
+	
+
+	// totals
+	tr = document.createElement("tr");
+	td = document.createElement("td");
+	td.appendChild( document.createTextNode("Totaal") );
+	tr.appendChild( td );
+	td = document.createElement("td");
+	td.appendChild( document.createTextNode( total_correct ) );
+	tr.appendChild( td );
+	td = document.createElement("td");
+	td.appendChild( document.createTextNode( total_fail ) );
+	tr.appendChild( td );
+	tbl.appendChild( tr );
+
+    perc = ((100 * total_correct) / (total_correct+total_fail)).toFixed(0);
+	if( isNaN( perc ) ) {
+		perc = 100;
+	}
+	td = document.createElement("td");
+	td.appendChild( document.createTextNode( perc + "%" ) );
+	tr.appendChild( td );
+	tr.setAttribute("class", "color_" + (perc/10).toFixed(0) );
+	
+	
+	tbl.style.display = "table";
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="setup" class="box" style="width: 20em; text-align: center;">
+
+	<div style="border: thin solid deepskyblue; margin-top: 2em; padding: 1em 1ex;">
+	Welke tafels wil je oefenen?<br>
+	<input type="checkbox" value="1" id="c1"><label for="c1">1</label>
+	<input type="checkbox" value="2" id="c2"><label for="c2">2</label>
+	<input type="checkbox" value="3" id="c3"><label for="c3">3</label>
+	<input type="checkbox" value="4" id="c4"><label for="c4">4</label>
+	<input type="checkbox" value="5" id="c5"><label for="c5">5</label>
+	<input type="checkbox" value="6" id="c6"><label for="c6">6</label>
+	<input type="checkbox" value="7" id="c7"><label for="c7">7</label>
+	<input type="checkbox" value="8" id="c8"><label for="c8">8</label>
+	<input type="checkbox" value="9" id="c9"><label for="c9">9</label>
+	<input type="checkbox" value="10" id="c10"><label for="c10">10</label>
+	<input type="checkbox" value="11" id="c11"><label for="c11">11</label>
+	<input type="checkbox" value="12" id="c12"><label for="c12">12</label>
+	</div>
+	<div style="border: thin solid deepskyblue; margin-top: 2em; padding: 1em 1ex;">
+	Welke deelsommen wil je oefenen?<br>
+	<input type="checkbox" value="2" id="d2"><label for="d2">2</label>
+	<input type="checkbox" value="3" id="d3"><label for="d3">3</label>
+	<input type="checkbox" value="4" id="d4"><label for="d4">4</label>
+	<input type="checkbox" value="5" id="d5"><label for="d5">5</label>
+	<input type="checkbox" value="6" id="d6"><label for="d6">6</label>
+	<input type="checkbox" value="7" id="d7"><label for="d7">7</label>
+	<input type="checkbox" value="8" id="d8"><label for="d8">8</label>
+	<input type="checkbox" value="9" id="d9"><label for="d9">9</label>
+	<input type="checkbox" value="10" id="d10"><label for="d10">10</label>
+	<input type="checkbox" value="11" id="d11"><label for="d11">11</label>
+	<input type="checkbox" value="12" id="d12"><label for="d12">12</label>
+	<p style="text-align: center; margin: 0; padding: 0">
+		<input type="checkbox" id="rem"><label for="rem">Met rest</label>
+	</p>
+	</div>
+	<br>
+	<button onclick="start();">Start</button>
+</div>
+
+<div id="main" style="display: none;">
+<div id="stats" class="box">
+	<table style="width:100%">
+		<tbody>
+			<tr>
+				<td id="score">Score: 0<td>
+				<td id="bonus">Bonus: 0<td>
+				<td id="points">Punten: 0<td>
+			</tr>
+		</tbody>
+	</table>
+	
+</div>
+
+<div id="res" class="res_neutral"></div>
+
+<div id="q" class="box">
+	<span id="som"></span>
+	<input type="text" id="ans" onkeyup="process(event);"/>
+</div>	
+</div>
+
+<table id="Tafels" class="summary" cellspacing="0" style="display: none;">
+</table>
+<p>
+<table id="Delen" class="summary" cellspacing="0" style="display: none;">
+</table>
+
+</body>
+
+</html>
