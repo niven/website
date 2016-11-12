@@ -14,13 +14,12 @@ body {
 	padding: 1em;
 }
 
-
 div > h1 {
 	font-size: small;
 	text-align: right;
 	font-style: italic;
 	
-	margin-bottom: 1em;
+	margin-bottom: 1ex;
 	color: white;
 	border-bottom: solid thin #eae3ea;
 }
@@ -29,7 +28,7 @@ div > h1 {
 	text-align: left;
 	
 	padding: 0.5em 1em;
-	margin-bottom: 0.5ex;
+	margin-bottom: 2ex;
 }
 
 ul {
