@@ -7,22 +7,28 @@
 }
 
 body {
-	padding: 0 20%;
 	line-height: 1.4em;
+	padding: 0 16%;
 }
 
 #container {
 	padding: 1em;
 }
 
-div > h1 {
-	font-size: small;
-	text-align: right;
-	font-style: italic;
-	
+p {
+	padding-bottom: 1ex;
+}
+
+h1, h2 {
+	font-size: smaller;
 	margin-bottom: 1ex;
 	color: white;
 	border-bottom: solid thin #eae3ea;
+}
+
+div > h1 {
+	text-align: right;
+	font-style: italic;
 }
 
 #container > div {
