@@ -22,7 +22,6 @@ p {
 h1, h2 {
 	font-size: smaller;
 	margin-bottom: 1ex;
-	color: white;
 	border-bottom: solid thin #eae3ea;
 }
 
@@ -38,6 +37,21 @@ div > h1 {
 	margin-bottom: 2ex;
 }
 
+.post {
+	border-radius: 0.2em 0.2em 0 0;
+}
+
+.photo {
+	margin-left: 1em;
+	margin-bottom: 1ex;
+	font-style: italic;
+	font-size: smaller;
+}
+
+.photo img {
+	border-radius: 0.5em;	
+}
+
 ul {
 	list-style-type: disc;
 }
@@ -46,30 +60,21 @@ li {
 	margin: 1ex;
 }
 
+/* colors */
+
 a {
-	color: white;
+	color: #1284ff;
 }
 
 img + br + span {
-	font-style: italic;
+	color: #1f1f21;
 }
 
-.col1 {
-	color: white;
-	background-color: #286da8;
+body {
+	background-color: #009688;
+	color: #1f1f21;
 }
 
-.col2 {
-	color: white;
-	background-color: #cd5360;
-}
-
-.col3 {
-	color: white;
-	background-color: #945d60;
-}
-
-.col4 {
-	color: white;
-	background-color: #438496;
+.post {
+	background-color: #f8f8f8;
 }
