@@ -79,3 +79,14 @@ body {
 .post {
 	background-color: #f8f8f8;
 }
+
+.mtg_deck {
+	display: flex;
+}
+
+.mtg_deck ul {
+	flex-grow: 1;
+}
+.mtg_deck span {
+	color: dodgerblue;
+}
