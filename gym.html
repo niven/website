@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+
+<head>
+
+<script type="text/javascript">
+
+// map hard to repetitions
+var reps = [ 80, 30, 20];
+var theme_from_type = {
+   legs: "Legs",
+   core: "Core",
+   full_body: "Full Body!"
+}   
+var exercises = [
+   { name: "Steps", theme: "legs", hard: 0, gear: "box" },
+   { name: "Knee Highs", theme: "legs", hard: 1 },
+   { name: "Heel Raises", theme: "legs", hard: 1 },
+   { name: "Sumo Squats", theme: "legs", hard: 1 },
+   { name: "Butterfly Kicks", theme: "legs", hard: 1 },
+   { name: "Butt Kicks", theme: "legs", hard: 1 },
+   { name: "Squats with Side Lifts", theme: "legs", hard: 2 },
+   { name: "Squats with High Knees", theme: "legs", hard: 2 },
+   { name: "Side Lunges", theme: "legs", hard: 2 },
+   { name: "Lunges", theme: "legs", hard: 2 },
+
+   { name: "Glute Bridges", theme: "core", hard: 1 },
+   { name: "Superman", theme: "core", hard: 1 },
+   { name: "Plank Jacks", theme: "core", hard: 1 },
+   { name: "Incline Pushups", theme: "core", hard: 1 },
+   { name: "Leg Lifts", theme: "core", hard: 2 },
+   { name: "Pushups", theme: "core", hard: 2 },
+   { name: "Russian Twists", theme: "core", hard: 2 },
+   { name: "V Situps", theme: "core", hard: 2 },
+   { name: "Tricep Dips", theme: "core", hard: 2, gear: "box" },
+   { name: "Shoulder Flys", theme: "core", hard: 2, gear: "weights" },
+
+   { name: "Skiprope", theme: "full_body", hard: 0, gear: "skiprope" },
+   { name: "Side Shuffles", theme: "full_body", hard: 1 },
+   { name: "Ski Moguls", theme: "full_body", hard: 1 },
+   { name: "Mountain Climbers", theme: "full_body", hard: 1 },
+   { name: "Frog Jumps", theme: "full_body", hard: 1 },
+   { name: "Half Burpees", theme: "full_body", hard: 1 },
+   { name: "Full Burpees", theme: "full_body", hard: 2 },
+   { name: "Ab Bikes", theme: "full_body", hard: 2 },
+   { name: "Box Jumps", theme: "full_body", hard: 2, gear: "box" },
+   { name: "Bench Hops", theme: "full_body", hard: 2, gear: "box" },
+];
+
+var themes = ["core", "legs", "full_body"];
+
+var levels = []; // [number of exercises, of which though ones, repeats]
+
+// Fisher-Yates
+function shuffle( array ) {
+	
+    var counter = array.length, temp, index;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
+}
+
+function make_levels() {
+   
+   var l = [];
+   for(var num_exercises = 6; num_exercises <= 8; num_exercises++) {
+      for(var repeats = 2; repeats <= 3; repeats++) {
+         for(var hard = 0; hard <= num_exercises; hard++) {
+            var intensity = repeats * num_exercises * ( num_exercises-hard + 2*hard );
+            l[intensity] = [num_exercises, hard, repeats];
+         }
+      }
+   }
+   
+   // now we have gaps, so shift stuff left until we start at 0
+   // this is possibly not the best way to go about it.
+   var i = 0;
+   for(var training in l ) {
+      levels[i++] = l[training];
+   }
+   
+}
+
+function generate_workout() {
+
+   make_levels();
+
+   var gear = {};
+   ["box", "weights", "skiprope"].forEach( function(el, idx, arr) {
+      gear[el] = document.getElementById("gear_" + el).checked;
+   } );
+
+   var level = document.getElementById("level").value;
+
+   // map level to training
+   var training_level = Math.floor( levels.length * level/101 );
+   var training = levels[ training_level ];
+   
+   var theme = themes[ Math.floor( Math.random() * themes.length) ];
+   document.getElementById("workout_title").innerHTML = "Workout: " + theme_from_type[theme] + " - Repeat " + training[2] + "&times;";
+   
+   // filter out things we don't have gear for. Also only include on theme and 20% 
+   // of the off theme options
+   var options = exercises.filter( function( el, idx, arr) {
+
+      return   ( !el.gear || gear[el.gear] )
+               &&
+               (
+                  el.theme == theme
+                  ||
+                  Math.random() < 0.2
+               )
+   });
+   
+   var easy = options.filter( function( el, idx, arr) {
+      return el.hard < 2;
+   });
+   var tough = options.filter( function( el, idx, arr) {
+      return el.hard == 2;
+   });
+   
+   // now pick the right amounts and shuffle them
+   var t = shuffle( tough );
+   t = t.slice( 0, training[1] );
+   var e = shuffle( easy );
+   e = e.slice( 0, training[0] - training[1] );
+
+   var workout = shuffle( t.concat( e ) );
+
+   render( workout );
+}   
+
+function render( workout ) {
+   
+   var w = document.getElementById("workout");
+   
+   var html = "";
+   workout.forEach( function( el, idx, arr) {
+      html += "<li>" + el.name + " <i>" + reps[el.hard] + "&times;</i></li>";
+   });
+   
+   w.innerHTML = html;
+}
+   
+</script>
+
+<style type="text/css">
+   
+* {
+   font-family: Georgia;
+   font-size: large;
+}
+
+body {
+   padding: 1em;
+}
+input, .gear, .gear li {
+   display: inline-block;
+}
+
+h1, ul, ol {
+   margin-top: 0;
+}
+ol, ul {
+   padding-left: 0;
+}
+
+#level {
+   width: 4em;
+}
+   
+#workout {
+   list-style-type: upper-roman;
+   margin-left: 2em;
+}
+
+div {
+   border: solid thin black;
+   border-radius: .4em;
+   box-shadow: 0.5ex 0 0 black;
+   
+   padding: 1ex;
+   margin: 0 auto;
+   width: 20em;
+   
+   background-color: lightskyblue;
+}
+
+input[type="button"] {
+   line-height: 3ex;
+}
+</style>
+
+</head>
+
+<body>
+
+<div>
+
+<h1>Settings</h1>
+Gear:
+<ul class="gear">
+   <li><input type="checkbox" id="gear_box"><label for="gear_box">Box</label></li>
+   <li><input type="checkbox" id="gear_weights"><label for="gear_weights">Weights</label></li>
+   <li><input type="checkbox" id="gear_skiprope"><label for="gear_skiprope">Skiprope</label></li>
+</ul>
+
+<br>
+
+Level
+<input id="level" type="number" placeholder="From 1 to 100" min="1" max="100" required> <input type="button" value="Get Ripped!" onclick="generate_workout();">
+
+</div>   
+
+<div>
+
+<h1 id="workout_title"></h1>
+<ol id="workout">
+</ol>   
+
+</div>
+   
+   
+</body>
+
+</html>
