@@ -11,7 +11,6 @@ body {
 }
 
 #container {
-	padding: 10vmin 1rem;
 	margin: 0 20%;
 }
 
@@ -26,11 +25,19 @@ h1, h2 {
 
 	font-size: larger;
 	margin-bottom: 1ex;
-	border-bottom: solid thin #eae3ea;
 	
 	text-shadow: 2px 2px 3px black;
-	border-radius: 0.2em 0.2em 0 0;
 	padding: 1em;
+	
+}
+
+h1 { 
+	border-radius: 0.2em 0.2em 0 0;
+	border-bottom: solid thin #eae3ea;
+}
+
+h2 {
+	
 }
 
 #header {
@@ -48,14 +55,16 @@ h1, h2 {
 
 #left {
 	position: absolute;
+	top: 8em;
 	left: 0;
 	width: 16%;
-	background-color: orange;
-	padding-top: 2em;
 	font-size: smaller;
+	border-right: solid thin black;
+	border-bottom: solid thin black;
 }
 
 #container > div {
+	margin-top: 2em;
 	margin-bottom: 2ex;
 }
 
