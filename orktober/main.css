@@ -2,7 +2,7 @@
 	padding: 0;
 	margin: 0;
 	
-	font-family: 'Prozima Nova', 'Open Sans', sans-serif;
+	font-family: 'Proxima Nova', 'Open Sans', sans-serif;
 	font-size: large;
 }
 
@@ -12,7 +12,7 @@ body {
 
 #container {
 	padding: 10vmin 1rem;
-	margin: 0 16%;
+	margin: 0 20%;
 }
 
 p {
@@ -46,6 +46,15 @@ h1, h2 {
 	padding: 0.5em;
 }
 
+#left {
+	position: absolute;
+	left: 0;
+	width: 16%;
+	background-color: orange;
+	padding-top: 2em;
+	font-size: smaller;
+}
+
 #container > div {
 	margin-bottom: 2ex;
 }
@@ -74,7 +83,7 @@ ul {
 }
 
 li {
-	margin: 1ex;
+	margin-left: 2em;
 }
 
 /* colors */
@@ -88,12 +97,12 @@ a {
 }
 
 img + br + span {
-	color: #1f1f21;
+	font-style: italic;
+	font-size: smaller;
 }
 
 body {
 	background-color: oldlace;
-	color: #1f1f21;
 }
 
 .post {
