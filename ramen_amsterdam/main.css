@@ -11,7 +11,7 @@ html {
 
 body {
 	
-   background-image: 
+/*   background-image:
 		repeating-linear-gradient(45deg,
 			transparent,
 			transparent 32px,
@@ -21,11 +21,18 @@ body {
 			transparent,
 			transparent 32px,
 			rgba(255, 182, 193, 0.5) 32px,
-			rgba(255, 182, 193, 0.5) 64px);		 
+			rgba(255, 182, 193, 0.5) 64px);
 
-	background-color: white;
+	background-color: #fffafb;
+*/
 	/* Set a size and repeat, otherwise you end up with a weird artifact at the fold when scrolling (maybe a bug, maybe I don't get it) */
-	background-size: 180px 180px;
+/*	background-size: 180px 180px;*/
+
+	background: linear-gradient(45deg, #dca 12%, transparent 0, transparent 88%, #dca 0),
+	    linear-gradient(135deg, transparent 37%, #a85 0, #a85 63%, transparent 0),
+	    linear-gradient(45deg, transparent 37%, #dca 0, #dca 63%, transparent 0) #753;
+	    background-size: 100px 100px;
+
 
 	height: 100%;
 	padding: 5%;
@@ -48,16 +55,17 @@ img {
 	float: left;
 	width: 10em;
 	margin-right: 1em;
+	margin-bottom: 1ex;
 }
 
 #main {
 	margin: 0 auto;
 	width: 80%;
-	background-color: ivory;
+	background-color: #FFE6C1;
 }
 
 dt {
-	background: linear-gradient( 90deg, lightblue 40%, white );
+	background: linear-gradient( 90deg, #D49F84 40%, #FFE6C1 );
 	font-weight: bold;
 	padding: 0.5ex 0.5em;
 }
@@ -85,13 +93,13 @@ p {
 }
 
 .yes {
-	color: limegreen;
-	border-color: limegreen;
+	color: #689B4A;
+	border-color: #689B4A;
 }
 
 .no {
-	color: firebrick;
-	border: solid 0.1em firebrick;
+	color: #A34D61;
+	border: solid 0.1em #A34D61;
 }
 
 /* Cute, but useless: place a data url image after a url and scale it */
