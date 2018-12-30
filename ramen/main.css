@@ -81,11 +81,11 @@ p {
 	font-size: 70%;
 }
 
-.tray {
+ul.tray {
 	margin-top: 1em;
 }
 
-.tray span, .tray a {
+ul.tray li {
 	display: inline-block;
 	font-size: 60%;
 	line-height: 100%;
@@ -93,31 +93,13 @@ p {
 	border-width: 0.1em;
 	border-radius: 0.2em;
 	border-style: solid;	
-}
-
-.yes {
 	color: #689B4A;
 	border-color: #689B4A;
 }
 
-.no {
-	color: #A34D61;
-	border: solid 0.1em #A34D61;
-}
-
-/* Cute, but useless: place a data url image after a url and scale it */
-/*
-a[target="_blank"]:after {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
-  content: "";
-  display: inline-block;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  height: 0.6em;
-  width:  0.6em;
-}
-*/
 
 a.address {
-	border: none;
+	font-size: 60%;
+	line-height: 100%;
+	
 }
