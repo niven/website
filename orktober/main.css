@@ -23,11 +23,11 @@ h1, h2 {
 	background-repeat: repeat-x;
 	background-color: transparent;
 
-	font-size: larger;
+	font-size: 160%;
+	padding: 0.5em;
 	margin-bottom: 1ex;
 	
 	text-shadow: 2px 2px 3px black;
-	padding: 1em;
 	
 }
 
@@ -46,9 +46,10 @@ h2 {
 	height: 1em;
 	
 	color: white;
-	text-shadow: 2px 2px 3px black;
+	text-shadow: 4px 4px 6px black;
 	line-height: 1em;
-	font-size: 2.5em;
+	font-size: 250%;
+	font-weight: bold;
 	vertical-align: center;
 	padding: 0.5em;
 }
