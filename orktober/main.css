@@ -76,17 +76,6 @@ h2 {
 .post p {
 	padding: 1em;
 }
-.photo {
-	margin-left: 1em;
-	margin-bottom: 1ex;
-	font-style: italic;
-	font-size: smaller;
-}
-
-.photo img {
-	border-radius: 0.5em;
-	width: 400px;
-}
 
 ul {
 	list-style-type: disc;
