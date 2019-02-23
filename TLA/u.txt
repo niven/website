@@ -1,0 +1,9 @@
+
+UDF	Universal Disk Format (UDF) is a profile of the specification known as ISO/IEC 13346 and ECMA-167 and is an open vendor-neutral file system for computer data storage for a broad range of media.
+UDP	The User Datagram Protocol (UDP) is one of the core members of the Internet protocol suite.
+
+URI	In information technology, a Uniform Resource Identifier (URI) is a string of characters used to identify a resource.
+URL	A Uniform Resource Locator (URL), commonly informally termed a web address (a term which is not defined identically) is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.
+URN	In computing, a Uniform Resource Name (URN) is the historical name for a Uniform Resource Identifier (URI) that uses the urn scheme.
+
+UTF   Unicode Transformation Format

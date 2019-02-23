@@ -1,0 +1,15 @@
+
+VAX	VAX is a discontinued instruction set architecture (ISA) developed by Digital Equipment Corporation (DEC) in the mid-1970s.
+
+VGA	Video Graphics Array (VGA) is the display hardware first introduced with the IBM PS/2 line of computers in 1987.
+
+VHS	The Video Home System (VHS) is a standard for consumer-level analog video recording on tape cassettes.
+
+VLA	In computer programming, a variable-length array (VLA), also called variable-sized, runtime-sized, is an array data structure of automatic storage duration whose length is determined at run time (instead of at compile time).
+
+VMS	The VAX Management System
+
+VPN	A virtual private network (VPN) extends a private network across a public network, such as the Internet.
+
+VUI	A voice-user interface (VUI) makes human interaction with computers possible through a voice/speech platform in order to initiate an automated service or process.
+

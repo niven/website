@@ -1,0 +1,28 @@
+
+MAC	In the IEEE 802 reference model of computer networking, the medium access control or media access control (MAC) layer is the lower sublayer of the data link layer (layer 2) of the seven-layer OSI model.
+
+MBR	A master boot record (MBR) is a special type of boot sector at the very beginning of partitioned computer mass storage devices like fixed disks or removable drives intended for use with IBM PC-compatible systems and beyond.
+
+MCU	A microcontroller (or MCU for microcontroller unit) is a small computer on a single integrated circuit.
+
+MDI	A multiple document interface (MDI) is a graphical user interface in which multiple windows reside under a single parent window.
+
+MMS	Multimedia Messaging Service (MMS) is a standard way to send messages that include multimedia content to and from a mobile phone over a cellular network.
+MMX	MMX is a single instruction, multiple data (SIMD) instruction set designed by Intel, introduced in 1997 with its P5-based Pentium line of microprocessors, designated as "Pentium with MMX Technology".
+
+MNG	Multiple-image Network Graphics (MNG) is a graphics file format, published in 2001, for animated images.
+
+MPL	The Mozilla Public License (MPL) is a free and open source software license developed and maintained by the Mozilla Foundation.
+
+MQV	MQV (Menezes-Qu-Vanstone) is an authenticated protocol for key agreement based on the Diffie-Hellman scheme. 
+
+MSB	In computing, the most significant bit (MSB, also called the high-order bit) is the bit position in a binary number having the greatest value.
+MSP	Managed Service Provider, a company that is outsourced to take care of businesses' IT services
+MSX	MSX is a standardised home computer architecture, first announced by Microsoft and ASCII Corporation on June 16, 1983.
+
+MTA	Within Internet message handling services (MHS), a message transfer agent or mail transfer agent (MTA) or mail relay is software that transfers electronic mail messages from one computer to another using a client-server application architecture.
+MTS	The Michigan Terminal System (MTS) is one of the first time-sharing computer operating systems.
+MTU	In computer networking, the maximum transmission unit (MTU) is the size of the largest network layer protocol data unit that can be communicated in a single network transaction.
+
+MVS	Multiple Virtual Storage, more commonly called MVS, was the most commonly used operating system on the System/370 and System/390 IBM mainframe computers.
+

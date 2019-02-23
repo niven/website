@@ -1,0 +1,3 @@
+
+ZMQ	ZeroMQ (also spelled 0MQ or ZMQ) is a high-performance asynchronous messaging library, aimed at use in distributed or concurrent applications. 
+

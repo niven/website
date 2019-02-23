@@ -1,0 +1,13 @@
+
+TCL	Tool Command Languange (TCL, though conventionally spelled Tcl) is a high-level, general-purpose, interpreted, dynamic programming language.
+TCP	The Transmission Control Protocol (TCP) is one of the main protocols of the Internet protocol suite.
+
+TFT	A thin-film transistor (TFT) is a special kind of field-effect transistor made by depositing thin films of an active semiconductor layer as well as the dielectric layer and metallic contacts over a supporting (but non-conducting) substrate.
+
+TLA	Three Letter Acronym
+TLP	Thread level parallelism
+
+TTL	Time To Live
+TTS	A text-to-speech (TTS) system converts normal language text into speech
+
+TXT	Text file

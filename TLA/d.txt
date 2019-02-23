@@ -1,0 +1,26 @@
+DAA	Data Access Arrangement (DAA) is data circuit-terminating equipment (DCE) supplied or approved by a common carrier that permits a DCE or data terminal equipment (DTE) to be attached to the common carrier network.
+DAC	In electronics, a digital-to-analog converter (DAC, D/A, D-A, D2A, or D-to-A) is a device that converts a digital signal into an analog signal.
+
+DBI	-
+
+DDR	In computing, a computer bus operating with double data rate (DDR) transfers data on both the rising and falling edges of the clock signal.
+
+DIB	The device independent bitmap (DIB) file format or simply a bitmap (BMP), is a raster graphics image file format used to store bitmap digital images, independently of the display device.
+
+DMS	The Disk Masher System (DMS) was an often used method on the Amiga, to create a compressed image of a disk (usually floppy). 
+
+DNS	The Domain Name System (DNS) is a hierarchical decentralized naming system for computers, services, or any resource connected to the Internet or a private network.
+
+DOM	The Document Object Model (DOM) is a cross-platform and language-independent application programming interface that treats an HTML, XHTML, or XML document as a tree structure wherein each node is an object representing a part of the document. 
+DOS	Disk Operating System (DOS) is a family of several very similar command-line computer operating systems for x86-based computers: primarily MS-DOS and PC DOS, but also DR-DOS, FreeDOS, ROM-DOS, and PTS-DOS.
+
+DRM	Digital rights management (DRM) schemes are various access control technologies that are used to restrict usage of proprietary hardware and copyrighted works.
+DRY	In software engineering, don't repeat yourself (DRY) is a principle of software development, aimed at reducing repetition of information of all kinds, especially useful in multi-tier architectures.
+
+DSA	The Digital Signature Algorithm (DSA) is a Federal Information Processing Standard for digital signatures.
+DSL	Digital subscriber line (DSL; originally digital subscriber loop) is a family of technologies that are used to transmit digital data over telephone lines.
+DSP	Digital signal processing (DSP) is the use of digital processing, such as by computers, to perform a wide variety of signal processing operations.
+
+DVD	Digital Video Disc (DVD) is a digital optical disc storage format invented and developed by Philips, Sony, Toshiba, and Panasonic in 1995.
+DVI	Digital Visual Interface (DVI) is a video display interface developed by the Digital Display Working Group (DDWG).
+

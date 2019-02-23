@@ -1,0 +1,28 @@
+IAP	In-App Purchaces or Microtransaction is a business model where users can purchase virtual goods via micropayments.
+
+ICE	In-circuit emulation (ICE) is the use of a hardware device or in-circuit emulator used to debug the software of an embedded system.
+IDE	An integrated development environment (IDE) is a software application that provides comprehensive facilities to computer programmers for software development.
+
+IEC	The International Electrotechnical Commission (IEC) is a non-profit, non-governmental international standards organization that prepares and publishes International Standards for all electrical, electronic and related technologies – collectively known as "electrotechnology".
+IES	Integrated Encryption Scheme (IES) is a hybrid encryption scheme which provides semantic security against an adversary who is allowed to use chosen-plaintext and chosen-ciphertext attacks.
+
+ILP	Instruction-level parallelism (ILP) is a measure of how many of the instructions in a computer program can be executed simultaneously.
+
+IMS	IBM Information Management System (IMS) is a joint hierarchical database and information management system with extensive transaction processing capabilities.
+
+IPC	Inter Process Communication
+IPI	An inter-processor interrupt (IPI) is a special type of interrupt by which one processor may interrupt another processor in a multiprocessor system if the interrupting processor requires action from the other processor.
+
+IRC	Internet Relay Chat
+IRL	In Real Life
+IRQ	In a computer, an interrupt request (or IRQ) is a hardware signal sent to the processor that temporarily stops a running program and allows a special program, an interrupt handler, to run instead.
+
+ISA	An instruction set, or instruction set architecture (ISA), is the part of the computer architecture related to programming, including the native data types, instructions, registers, addressing modes, memory architecture, interrupt and exception handling, and external I/O.
+ISO	The International Organization for Standardization (ISO) is an international standard-setting body composed of representatives from various national standards organizations.
+ISP	An Internet service provider (ISP) is an organization that provides services for accessing and using the Internet.
+
+ITS	ITS (Incompatible Timesharing System), is a time-sharing operating system developed principally by the MIT Artificial Intelligence Laboratory, with help from Project MAC.
+ITT	In This Thread
+
+IVR	Interactive voice response (IVR) is a technology that allows a computer to interact with humans through the use of voice and DTMF tones input via keypad.
+

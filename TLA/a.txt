@@ -1,0 +1,31 @@
+ABI	Application Binary Interface
+
+ACD	In telephony, an automatic call distributor (ACD) or automated call distribution system, is a device or system that distributes incoming calls to a specific group of terminals or agents based on the customer's selection, customer's telephone number, selected incoming line to the system, or time of day the call was processed.
+ACL	An access control list (ACL), with respect to a computer file system, is a list of permissions attached to an object.
+
+ADC	In electronics, an analog-to-digital converter (ADC, A/D, A-D, or A-to-D) is a system that converts an analog signal, such as a sound picked up by a microphone or light entering a digital camera, into a digital signal.
+ADF	Amiga Disk File (ADF) is a file format used by Amiga computers and emulators to store images of disks.
+
+AGL	Apple Graphics Library or AGL is the Apple Inc. API for use of OpenGL 3D graphics within Carbon windows.
+AGP	The Accelerated Graphics Port (AGP) is a high-speed point-to-point channel for attaching a video card to a computer system, primarily to assist in the acceleration of 3D computer graphics.
+
+AIX	AIX (Advanced Interactive eXecutive) is a series of proprietary Unix operating systems developed and sold by IBM for several of its computer platforms.
+
+ALU	An arithmetic logic unit (ALU) is a combinational digital electronic circuit that performs arithmetic and bitwise operations on integer binary numbers.
+
+API	Application Programming Interface
+
+ARM	ARM, originally Acorn RISC Machine, later Advanced RISC Machine, is a family of reduced instruction set computing (RISC) architectures for computer processors, configured for various environments.
+ARP	The Address Resolution Protocol (ARP) is a telecommunication protocol used for resolution of Internet layer addresses into link layer addresses, a critical function in computer networks.
+
+ASG	In computer science, an abstract semantic graph (ASG) or term graph is a form of abstract syntax in which an expression of a formal or programming language is represented by a graph whose vertices are the expression's subterms.
+ASP	An application service provider (ASP) is a business providing computer-based services to customers over a network; such as access to a particular software application (such as customer relationship management) using a standard protocol (such as HTTP).
+AST	In computer science, an abstract syntax tree (AST), or just syntax tree, is a tree representation of the abstract syntactic structure of source code written in a programming language.
+
+ATA	AT Attachment (ATA/ATAPI), the old name of Parallel ATA, an older interface for computer storage devices
+ATL	The Active Template Library (ATL) is a set of template-based C++ classes developed by Microsoft, intended to simplify the programming of Component Object Model (COM) objects.
+ATM	Asynchronous transfer mode (ATM) is, according to the ATM Forum, "a telecommunications concept defined by ANSI and ITU (formerly CCITT) standards for carriage of a complete range of user traffic, including voice, data, and video signals".
+ATX	ATX (Advanced Technology eXtended) is a motherboard configuration specification developed by Intel in 1995 to improve on previous de facto standards like the AT design.
+
+AVX	Advanced Vector Extensions (AVX) are extensions to the x86 instruction set architecture for microprocessors from Intel and AMD.
+

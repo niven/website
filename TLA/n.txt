@@ -1,0 +1,13 @@
+NAN	In computing, NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value, especially in floating-point calculations.
+NAT	Network address translation (NAT) is a method of remapping one IP address space into another by modifying network address information in Internet Protocol (IP) datagram packet headers while they are in transit across a traffic routing device.
+
+NBI	In computer networking and computer architecture, a NorthBound Interface of a component is an interface that conceptualizes the lower level details (e.g., data or functions) used by, or in, the component.
+
+NDP	The Neighbor Discovery Protocol (NDP, ND) is a protocol in the Internet protocol suite used with Internet Protocol Version 6 (IPv6).
+
+NIC	The Network Information Center (NIC), also known as InterNIC from 1993 until 1998, was the organization primarily responsible for Domain Name System (DNS) domain name allocations and X.500 directory services.
+
+NMI	In computing, a non-maskable interrupt (NMI) is a hardware interrupt that standard interrupt-masking techniques in the system cannot ignore.
+
+NTP	Network Time Protocol (NTP) is a networking protocol for clock synchronization between computer systems over packet-switched, variable-latency data networks.
+

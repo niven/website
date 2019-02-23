@@ -1,0 +1,24 @@
+
+PCB	A printed circuit board (PCB) mechanically supports and electrically connects electronic components using conductive tracks, pads and other features etched from copper sheets laminated onto a non-conductive substrate.
+PCI	Peripheral Component Interconnect (PCI) is a local computer bus for attaching hardware devices in a computer.
+
+PDF	The Portable Document Format (PDF) is a file format used to present documents in a manner independent of application software, hardware, and operating systems.
+PDL	In digital printing a page description language (PDL) is a computer language that describes the appearance of a printed page in a higher level than an actual output bitmap.
+PDP	Programmed Data Processor (PDP) was a series of minicomputers made and marketed by the Digital Equipment Corporation from 1957 to 1990.
+
+PFS	In cryptography, Perfect Forward Secrecy (PFS) is a property of secure communication protocols in which compromise of long-term keys does not compromise past session keys.
+
+PHP	PHP: Hypertext Processor (PHP) is a server-side scripting language designed primarily for web development but also used as a general-purpose programming language.
+
+PIC	In computing, a programmable interrupt controller (PIC) is a device that is used to combine several sources of interrupt onto one or more CPU lines, while allowing priority levels to be assigned to its interrupt outputs.
+
+PKI	A public key infrastructure (PKI) is a set of roles, policies, and procedures needed to create, manage, distribute, use, store, and revoke digital certificates and manage public-key encryption.
+
+PNG	Portable Network Graphics (PNG) is a raster graphics file format that supports lossless data compression.
+
+POP	Post Office Protocol
+
+PPP	In computer networking, Point-to-Point Protocol (PPP) is a data link (layer 2) protocol used to establish a direct connection between two nodes.
+
+PSU	A power supply unit (or PSU) converts mains AC to low-voltage regulated DC power for the internal components of a computer. 
+

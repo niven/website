@@ -1,0 +1,24 @@
+
+SDD	A solid-state drive (SSD, also known as a solid-state disk) is a solid-state storage device that uses integrated circuit assemblies as memory to store data persistently. 
+SDN	Software-defined networking (SDN) is an approach to computer networking that allows network administrators to programmatically initialize, control, change, and manage network behavior dynamically via open interfaces and abstraction of lower-level functionality. 
+SDK	A software development kit (SDK) is typically a set of software development tools that allows the creation of applications for a certain software package, software framework, hardware platform, computer system, video game console, operating system, or similar development platform.
+
+SIP	The Session Initiation Protocol (SIP) is a communications protocol for signaling and controlling multimedia communication session such as voice and video calls. 
+
+SLI	Scalable Link Interface (SLI) is a brand name for a multi-GPU technology developed by Nvidia for linking two or more video cards together to produce a single output.
+
+SMS	Short Message Service (SMS) is a text messaging service component of most telephone, World Wide Web, and mobile telephony systems.
+SMT	Simultaneous multithreading (SMT) is a technique for improving the overall efficiency of superscalar CPUs with hardware multithreading. 
+SNA	Systems Network Architecture (SNA) is IBM's proprietary networking architecture, created in 1974.
+
+SQL	(Structured Query Language) is a special-purpose domain-specific language used in programming and designed for managing data held in a relational database management system (RDBMS), or for stream processing in a relational data stream management system (RDSMS).
+
+SRP	The Secure Remote Password protocol (SRP) is an augmented password-authenticated key agreement (PAKE) protocol, specifically designed to work around existing patents.
+SRT	A Semantic Resolution Tree (SRT) is a tree used for the definition of the semantics of a programming language.
+
+SSD	A solid-state drive (SSD, also known as a solid-state disk) is a solid-state storage device that uses integrated circuit assemblies as memory to store data persistently.
+SSL	Secure Sockets Layer (SSL) is a cryptographic protocol that provides communications security over a computer network.
+
+STS	In public-key cryptography, the Station-to-Station (STS) protocol is a cryptographic key agreement scheme based on classic Diffie-Hellman that provides mutual key and entity authentication.
+
+SVG	Scalable Vector Graphics (SVG) is an XML-based vector image format for two-dimensional graphics with support for interactivity and animation.

@@ -1,0 +1,20 @@
+
+BAC	Basic access control (BAC) is a mechanism specified to ensure only authorized parties can wirelessly read personal information from passports with an RFID chip.
+BAI	BAI, or the BAI file format, is a file format for performing electronic cash management balance reporting. The BAI format was developed and previously maintained by the Bank Administration Institute (BAI).
+BAL	Basic Assembly Language (BAL) is the commonly used term for a low-level programming language used on IBM System/360 and successor mainframes.
+BAM	In computer file systems, a block availability map (BAM) is a data structure used to track disk blocks that are considered "free" (available for new data).
+BAR	The system's firmware, device drivers or the operating system program the Base Address Registers (commonly called BARs) to inform the device of its address mapping by writing configuration commands to the PCI controller.i
+BAT	Block Address Translation registers in PowerPC microprocessors
+
+BCD	In computing and electronic systems, binary-coded decimal (BCD) is a class of binary encodings of decimal numbers where each decimal digit is represented by a fixed number of bits, usually four or eight.
+
+BGP	Border Gateway Protocol (BGP) is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (AS) on the Internet.
+
+BMP	The BMP file format, also known as bitmap image file or device independent bitmap (DIB) file format or simply a bitmap, is a raster graphics image file format used to store bitmap digital images, independently of the display device.
+
+BNF	In computer science, Backus–Naur form or Backus normal form (BNF) is a notation technique for context-free grammars, often used to describe the syntax of languages used in computing, such as computer programming languages, document formats, instruction sets and communication protocols.
+
+BSD	Berkeley Software Distribution (BSD) is a Unix operating system derivative developed and distributed by the Computer Systems Research Group (CSRG) of the University of California, Berkeley, from 1977 to 1995.
+
+BTX	BTX (for Balanced Technology eXtended) is a form factor for motherboards, originally intended to be the replacement for the aging ATX motherboard form factor in late 2004 and early 2005.
+

@@ -1,0 +1,27 @@
+CAA	DNS Certification Authority Authorization (CAA) uses the Internet's Domain Name System to specify which certificate authorities may be regarded as authoritative for a domain.
+CAD	Computer Aided Design
+
+CDN	A content delivery network or content distribution network (CDN) is a globally distributed network of proxy servers deployed in multiple data centers. 
+
+CFG	A context-free grammar (CFG) is a term used in formal language theory to describe a certain type of formal grammar.
+
+CGA	The Color Graphics Adapter (CGA), originally also called the Color/Graphics Adapter or IBM Color/Graphics Monitor Adapter, introduced in 1981, was IBM's first graphics card and first color display card for the IBM PC.
+CGL	Core OpenGL, or CGL, is Apple Inc.'s Macintosh Quartz windowing system interface to the OS X implementation of the OpenGL specification.
+
+CLI	A command-line interface or command language interpreter (CLI), also known as command-line user interface, console user interface, and character user interface (CUI), is a means of interacting with a computer program where the user (or client) issues commands to the program in the form of successive lines of text (command lines).
+CLS	CLear Screen
+
+CMS	A content management system (CMS) is a computer application that supports the creation and modification of digital content. It is often used to support multiple users working in a collaborative environment.
+
+COM	Component Object Model (COM) is a binary-interface standard for software components introduced by Microsoft in 1993.
+
+CPU	A central processing unit (CPU) is the electronic circuitry within a computer that carries out the instructions of a computer program by performing the basic arithmetic, logical, control and input/output (I/O) operations specified by the instructions.	
+
+CRC	A cyclic redundancy check (CRC) is an error-detecting code commonly used in digital networks and storage devices to detect accidental changes to raw data.
+CRT	Cathode Ray Tube
+
+CSS	Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language.
+CSV	In computing, a comma-separated values (CSV) file stores tabular data (numbers and text) in plain text.
+
+CTI	Computer telephony integration, also called computer-telephone integration or CTI, is a common name for any technology that allows interactions on a telephone and a computer to be integrated or coordinated.
+

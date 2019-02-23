@@ -1,0 +1,29 @@
+RAD	Rapid application development (RAD) is both a general term used to refer to alternatives to the conventional waterfall model of software development as well as the name for James Martin's approach to rapid development.
+RAM	Random-access memory (RAM) is a form of computer data storage which stores frequently used program instructions to increase the general speed of a system.
+
+RDB	A Relational DataBase is a digital database whose organization is based on the relational model of data
+RDF	The Resource Description Framework (RDF) is a family of World Wide Web Consortium (W3C) specifications originally designed as a metadata data model. 
+
+RFC	A Request for Comments (RFC) is a type of publication from the Internet Engineering Task Force (IETF) and the Internet Society (ISOC), the principal technical development and standards-setting bodies for the Internet.
+
+RGB	Red Green Blue
+
+RIF	The Rule Interchange Format (RIF) is a W3C Recommendation.
+RIP	The Routing Information Protocol (RIP) is one of the oldest distance-vector routing protocols which employ the hop count as a routing metric. 
+
+RMI	In a distributed computing environment, Remote Method Invocation (RMI) or distributed object communication realizes communication between distributed objects. 
+
+RNG	A random-number generator (RNG) is a computational or physical device designed to generate a sequence of numbers or symbols that cannot be reasonably predicted better than by a random chance.
+
+ROM	Read-only memory (ROM) is a type of non-volatile memory used in computers and other electronic devices.
+
+RPC	In distributed computing a remote procedure call (RPC) is when a computer program causes a procedure (subroutine) to execute in another address space (commonly on another computer on a shared network), which is coded as if it were a normal (local) procedure call, without the programmer explicitly coding the details for the remote interaction.
+RPG	Report Program Generator (RPG) is a high-level programming language (HLL) for business applications.
+
+RSA	RSA is one of the first practical public-key cryptosystems and is widely used for secure data transmission, RSA is made of the initial letters of the surnames of Ron Rivest, Adi Shamir, and Leonard Adleman, who first publicly described the algorithm in 1977. 
+RSS	Rich Site Summary (originally RDF Site Summary; often called Really Simple Syndication) uses a family of standard web feed formats to publish frequently updated information: blog entries, news headlines, audio, and video.
+
+RTP	The Real-time Transport Protocol (RTP) is a network protocol for delivering audio and video over IP networks.
+
+RVU	The RVU protocol (RVU, a pseudo-acronym pronounced "R-view") is an Application Layer protocol, that combines the pre-existing Digital Living Network Alliance (DLNA) standards and a new Remote User Interface (RUI) protocol, which works similar to Remote Desktop Protocol (RDP).
+

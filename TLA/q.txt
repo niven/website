@@ -1,0 +1,4 @@
+
+QOS	Quality of service (QoS) is the overall performance of a telephony or computer network, particularly the performance seen by the users of the network.
+
+QTE	In video games, a quick time event (QTE) is a method of context-sensitive gameplay in which the player performs actions on the control device shortly after the appearance of an on-screen instruction/prompt.

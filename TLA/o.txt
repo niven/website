@@ -1,0 +1,20 @@
+
+OCR	Optical character recognition (also optical character reader, OCR) is the mechanical or electronic conversion of images of typed, handwritten or printed text into machine-encoded text.
+
+OEM	An original equipment manufacturer (OEM) is a company that makes a part or subsystem that is used in another company's end product.
+
+OFS	On the Amiga, the Old File System was the filesystem for AmigaOS before the Amiga Fast File System.
+
+OID	In computing, object identifiers or OIDs are an identifier mechanism standardized by the International Telecommunications Union (ITU) and ISO/IEC for naming any object, concept, or "thing" with a globally unambiguous persistent name.
+
+OLE	Object Linking and Embedding is a proprietary technology developed by Microsoft that allows embedding and linking to documents and other objects.
+
+ORM	Object-relational mapping (ORM, O/RM, and O/R mapping tool) in computer science is a programming technique for converting data between incompatible type systems in object-oriented programming languages. 
+
+OSI	The Open Systems Interconnection model (OSI model) is a conceptual model that characterizes and standardizes the communication functions of a telecommunication or computing system without regard to their underlying internal structure and technology.
+OSS	Open-source software (OSS) is computer software with its source code made available with a license in which the copyright holder provides the rights to study, change, and distribute the software to anyone and for any purpose.
+
+OTP	In cryptography, the one-time pad (OTP) is an encryption technique that cannot be cracked, but requires the use of a one-time pre-shared key the same size as the message being sent.
+
+OWL	The Web Ontology Language (OWL) is a family of knowledge representation languages for authoring ontologies.
+

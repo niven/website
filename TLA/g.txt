@@ -1,0 +1,21 @@
+
+GCC	The GNU Compiler Collection (GCC) is a compiler system produced by the GNU Project supporting various programming languages.
+
+GDI	The Graphics Device Interface (GDI) is a Microsoft Windows application programming interface and core operating system component responsible for representing graphical objects and transmitting them to output devices such as monitors and printers.
+
+GIS	A geographic information system (or GIS) is a system designed to capture, store, manipulate, analyze, manage, and present spatial or geographic data.
+
+GOS	In telecommunication engineering, Grade of Service (GoS) is the probability of a call in a circuit group being blocked or delayed for more than a specified interval, expressed as a vulgar fraction or decimal fraction.
+
+GNU	GNU is a recursive acronym for "GNU's Not Unix!", an operating system and an extensive collection of computer software.
+
+GPL	The GNU General Public License (GNU GPL or GPL) is a widely used free software license, which guarantees end users the freedom to run, study, share and modify the software.
+GPT	GUID Partition Table (GPT) is a standard for the layout of the partition table on a physical storage device used in a desktop or server PC, such as a hard disk drive or solid-state drive, using globally unique identifiers (GUID).
+GPU	A graphics processing unit (GPU), occasionally called visual processing unit (VPU), is a specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the creation of images in a frame buffer intended for output to a display.
+
+GRE	Generic Routing Encapsulation (GRE) is a tunneling protocol developed by Cisco Systems that can encapsulate a wide variety of network layer protocols inside virtual point-to-point links over an Internet Protocol network.
+
+GSM	GSM (Global System for Mobile Communications, originally Groupe SpécialMobile), is a standard developed by the European Telecommunications Standards Institute (ETSI) to describe the protocols for second-generation (2G) digital cellular networks used by mobile phones.
+
+GUI	In computer science, a graphical user interface (GUI), is a type of user interface that allows users to interact with electronic devices through graphical icons and visual indicators such as secondary notation, instead of text-based user interfaces, typed command labels or text navigation.
+

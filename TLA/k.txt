@@ -1,0 +1,5 @@
+
+KVM	Kernel-based Virtual Machine (KVM) is a virtualization infrastructure for the Linux kernel that turns it into a hypervisor.
+
+KRC	KRC (Kent Recursive Calculator) is a lazy functional language developed by David Turner from November 1979 to October 1981 based on SASL, with pattern matching, guards and ZF expressions.
+

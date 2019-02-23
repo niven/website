@@ -1,0 +1,16 @@
+
+
+HCF	In computer engineering, Halt and Catch Fire, known by the assembly mnemonic HCF, is an idiom referring to a computer machine code instruction that causes the computer's central processing unit (CPU) to cease meaningful operation.
+
+HDD	A hard disk drive (HDD), hard disk, hard drive or fixed disk is a data storage device that uses magnetic storage to store and retrieve digital information using one or more rigid rapidly rotating disks (platters) coated with magnetic material.
+
+HFC	Hybrid fiber-coaxial (HFC) is a telecommunications industry term for a broadband network that combines optical fiber and coaxial cable.
+HFE	Hidden Fields Equations (HFE) is a public key cryptosystem which was introduced at Eurocrypt in 1996 and proposed by (French) Jacques Patarin following the idea of the Matsumoto and Imai system.
+
+HLL	In computer science, a High-Level Language (HLL) is a programming language with strong abstraction from the details of the computer.
+HMS	The SCTE Hybrid Management Sub-Layer (HMS) refers to a set of specifications intended to support the design and implementation of inter-operable management systems for evolving HFC cable networks.
+
+HTT	Hyper-threading (officially called Hyper-Threading Technology or HT Technology, and abbreviated as HTT or HT) is Intel's proprietary simultaneous multithreading (SMT) implementation used to improve parallelization of computations (doing multiple tasks at once) performed on x86 microprocessors. 
+
+HUD	In video gaming, the head-up display (HUD) is the method by which information is visually relayed to the player as part of a game's user interface. It takes its name from the head-up displays used in modern aircraft.
+

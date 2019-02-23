@@ -1,0 +1,13 @@
+XCB	XCB (X protocol C-language Binding) is a library implementing the client-side of the X11 display server protocol.
+XCF	In IBM mainframes, a Cross-system Coupling Facility, or XCF, is a component of z/OS that manages communications between applications in a sysplex. 
+
+XML	In computing, Extensible Markup Language (XML) is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.
+
+XOM	XOM is a XML document object model for processing XML with Java that strives for correctness and simplicity.
+
+XSL	In computing, the term Extensible Stylesheet Language (XSL) is used to refer to a family of languages used to transform and render XML documents.
+
+XTR	In cryptography, XTR is an algorithm for public-key encryption. XTR stands for ECSTR, which is an abbreviation for Efficient and Compact Subgroup Trace Representation.
+
+XUL	XML User Interface Language (XUL, pronounced ZOOL), is a user interface markup language that is developed by Mozilla.
+

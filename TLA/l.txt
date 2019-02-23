@@ -1,0 +1,13 @@
+
+LAN	A local area network (LAN) is a computer network that interconnects computers within a limited area such as a residence, school, laboratory, university campus or office building and has its network equipment and interconnects locally managed.
+
+LCD	Liquid-crystal-display televisions (LCD TV) are television sets that use liquid-crystal displays to produce images.
+
+LED	Light Emitting Diode
+
+LLC	In the IEEE 802 reference model of computer networking, the logical link control (LLC) data communication protocol layer is the upper sublayer of the data link layer (layer 2) of the seven-layer OSI model.
+
+LRO	In computer networking, large receive offload (LRO) is a technique for increasing inbound throughput of high-bandwidth network connections by reducing CPU overhead.
+
+LSB	In computing, the least significant bit (LSB) is the bit position in a binary integer giving the units value, that is, determining whether the number is even or odd.
+

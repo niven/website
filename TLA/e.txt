@@ -1,0 +1,22 @@
+
+EAC	Extended Access Control (EAC) is a set of advanced security features for electronic passports that protects and restricts access to sensitive personal data contained in the RFID chip.
+EAD	EAD is an abbreviation for German Ethernet-Anschlussdose. The EAD standard defines wall mounted Ethernet connection outlets that are more reliable than standard BNC T-connectors.
+
+EBX	Embedded Board eXpandable (EBX) is a standardized computer form factor.
+
+ECG	Electrocardiography (ECG) is the process of recording the electrical activity of the heart over a period of time using electrodes placed on the skin.
+ECN	Explicit Congestion Notification (ECN) is an extension to the Internet Protocol and to the Transmission Control Protocol and is defined in RFC 3168 (2001). 
+
+EFF	The Electronic Frontier Foundation (EFF) is an international non-profit digital rights group based in San Francisco, California.
+
+EOI	An End Of Interrupt (EOI) is a signal sent to a Programmable Interrupt Controller (PIC) to indicate the completion of interrupt processing for a given interrupt.
+
+EGA	The Enhanced Graphics Adapter (EGA) is a historical IBM PC computer display standard from 1984 that superseded and exceeded the capabilities of the CGA standard introduced with the original IBM PC, and was itself superseded by the VGA standard in 1987.
+EGL	EGL is an interface between Khronos rendering APIs (such as OpenGL, OpenGL ES or OpenVG) and the underlying native platform windowing system.
+
+EKE	Encrypted Key Exchange (also known as EKE) is a family of password-authenticated key agreement methods described by Steven M. Bellovin and Michael Merritt.
+
+ESP	Extended Stack Pointer register in Intel IA-32 (x86/32-bit) assembler
+
+EVC	An Extended Validation Certificate (EV) is a certificate used for HTTPS websites and software that proves the legal entity controlling the web site or software package. 
+

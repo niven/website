@@ -1,0 +1,8 @@
+
+JCL	Job Control Language (JCL) is a name for scripting languages used on IBM mainframe operating systems to instruct the system on how to run a batch job or start a subsystem.
+
+JES	The Job Entry Subsystem (JES) is a component of IBM's MVS (OS/VS2 R2 through z/OS) operating systems that receives jobs into the computer system, schedules them for processing, and controls their output processing.
+
+JNG	JPEG Network Graphics (JNG/) is a JPEG-based graphics file format which is closely related to PNG: it uses the PNG file structure (with a different signature) as a container format to wrap JPEG-encoded image data.
+
+JPG	Short for JPEG (Joint Photographic Experts Group) is a commonly used method of lossy compression for digital images, particularly for those images produced by digital photography.

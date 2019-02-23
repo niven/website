@@ -1,0 +1,9 @@
+
+WAN	A wide area network (WAN) is a telecommunications network or computer network that extends over a large geographical distance. 
+WAP	Wireless Application Protocol (WAP) is a technical standard for accessing information over a mobile wireless network.
+WAV
+
+WGL	WGL or Wiggle is an API between OpenGL and the windowing system interface of Windows.
+
+WWW
+
