@@ -1,0 +1,234 @@
+<doctype html>
+<html>
+<head>	
+<meta charset="utf-8">	
+<title>Kasteel layouts</title>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;	
+	font-family: "Lucida Console";
+}
+
+#room {
+	background-color: lightgray;
+}
+#size {
+	height: 12pt;
+	background-color: "red";
+}
+
+.rect {
+	position: fixed;
+	border: 1px solid black;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-size: cover !important;
+}
+
+button {
+	font-size: 16pt;
+}
+
+</style>
+<script type="text/javascript">
+
+let COLORS = ["aquamarine", "coral", "cornflowerblue", "cornsilk"];
+
+let WIDTH = 1000;
+let HEIGHT = 800;
+let room_canvas;
+var current_room;
+var lastclick_x = 0, lastclick_y = 0;
+
+function init() {
+	room_canvas = document.getElementById("room");
+	room_canvas.style.width = WIDTH + "px";
+	room_canvas.style.height = HEIGHT + "px";	
+}
+
+
+function Room( name, width, height ) {
+	return {
+		"name": name,
+		"width": width,
+		"height": height,
+		"items": []
+	};
+}
+
+function Item( name, x, y, w, h, background, optional_rotation ) {
+	return {
+		"name": name,
+		"width": w,
+		"height": h,
+		"left": x,
+		"top": y,
+		"background": background,
+		"rotation": (optional_rotation ? optional_rotation : 0)
+	};
+}
+
+let chris = Room("Master", 288, 547);
+chris.items.push(Item("", 0, -10, 288, 10, "royalblue"));
+chris.items.push(Item("Rug 230x160", (288-230)/2, 280, 230, 160, "coral"));
+chris.items.push(Item("Bed", (288-180)/2, 0, 180, 200, "saddlebrown"));
+chris.items.push(Item("Chest", (288-140)/2, 200, 140, 40, "cornsilk"));
+chris.items.push(Item("", 0, 10, 8, 460, "oldlace"));
+chris.items.push(Item("Cupboard", (288-120)/2, 547-65, 120, 65, "maroon"));
+chris.items.push(Item("W", -5, 65, 10, 90, "cornflowerblue"));
+chris.items.push(Item("W", -5, 65+90+55, 10, 90, "cornflowerblue"));
+chris.items.push(Item("W", -5, 65+90+55+90+55, 10, 90, "cornflowerblue"));
+chris.items.push(Item("Door", 288-10, 547-105-90, 20, 90, "grey"));
+
+let jacen = Room("Jacen", 455, 317);
+jacen.items.push(Item("", 0, -10, 455, 10, "lightgreen"));
+jacen.items.push(Item("Rug 170x230", 20, 50, 170, 230, "url('rug_jacen_0.jpg')"));
+jacen.items.push(Item("Rug 80x150", 350, 50, 80, 150, "burlywood"));
+jacen.items.push(Item("Bed", 200, 0, 140, 200, "cornsilk"));
+jacen.items.push(Item("NStnd", 140, 0, 55, 40, "grey"));
+jacen.items.push(Item("", 455-8, 60, 8, 220, "oldlace"));
+jacen.items.push(Item("Dresser", 455-160-10, 317-55, 160, 55, "grey"));
+jacen.items.push(Item("W", 450, 65, 10, 90, "cornflowerblue"));
+jacen.items.push(Item("W", 450, 65+90+55, 10, 90, "cornflowerblue"));
+jacen.items.push(Item("Door", 20, 307, 90, 20, "grey"));
+
+let office = Room("Office", 355, 218);
+let living = Room("Living", 980, 547);
+living.items.push(Item("Stairs", 402, 547-100, 220, 100, "white"));
+living.items.push(Item("Passage", 402-24, 547-100-120, 244, 120, "lightgray"));
+living.items.push(Item("Toilet", 402+104-24, 547-100-120-104, 140, 104, "lightgray"));
+living.items.push(Item("French", -5, 52, 10, 152, "cornflowerblue"));
+living.items.push(Item("", 0, 52+152+136, 22, 547-(52+152+136+55), "oldlace"));
+living.items.push(Item("?", 980-15, 45, 15, 220, "oldlace"));
+living.items.push(Item("Stove", 402+220, 547-60, 120, 60, "silver"));
+living.items.push(Item("Counter", 402+220+120, 547-60, 980-(402+220+120), 60, "dimgray"));
+living.items.push(Item("Piano?", 450, 0, 180, 40, "darkgray"));
+
+
+living.items.push(Item("Rug 290x190", 980-280, 90, 290, 190, "peachpuff", 90));
+living.items.push(Item("Table 260x90", 980-(260), 140, 260, 90, "peru", 90));
+//living.items.push(Item("Rug 290x190", 980-(290+20), 50, 290, 190, "peachpuff"));
+//living.items.push(Item("Table 260x90", 980-(260+35), 100, 260, 90, "peru"));
+
+living.items.push(Item("Plant Wall", 980-(260+35), 0, 260+35, 30, "mediumseagreen"));
+living.items.push(Item("P W", 402-(24+30), 547-220, 30, 220, "mediumseagreen"));
+
+living.items.push(Item("Rug 400x300", 15, 15, 400, 300, "url('Stonewash.jfif')"));
+living.items.push(Item("Big Seat 146x100", 40, 60, 146, 110, "goldenrod", -45));
+living.items.push(Item("Lounge 105x175", 40, 547-175, 105, 175, "lightsteelblue"));
+living.items.push(Item("Seat 2AL 183x100", 40+105, 547-100, 183, 100, "lightsteelblue"));
+
+
+let ryan = Room("Ryan", 547, 358);
+ryan.items.push(Item("", 547, 70, 10, 358-70,  "gold"));
+ryan.items.push(Item("", 547-340, 0, 340, 70,  "lightgray"));
+ryan.items.push(Item("Rug 280x190", 65, 120, 280, 190, "coral"));
+ryan.items.push(Item("________ __________ Rug 120", 380, 190, 120, 120, "oldlace"));
+ryan.items.push(Item("Bed", 547-200, 70, 200, 140, "cornsilk"));
+ryan.items.push(Item("NStnd", 547-40, 210, 40, 55, "grey"));
+ryan.items.push(Item("", 260, 358-8, 260, 8, "oldlace"));
+ryan.items.push(Item("Dresserx3", 0, 100, 55, 50*3, "grey"));
+ryan.items.push(Item("W", 280, 358-5, 220, 10, "cornflowerblue"));
+ryan.items.push(Item("Door", 45, 358-5, 160, 10, "cornflowerblue"));
+ryan.items.push(Item("Door", 110, -10, 90, 20, "grey"));
+
+
+let rooms = [chris, jacen, office, living, ryan];
+
+function rect( x, y, w, h, background ) {
+	let r = document.createElement("div");
+	r.style.left = x + "px";
+	r.style.top = y + "px";
+	r.style.width = w + "px";
+	r.style.height = h + "px";
+	r.style.background = background;
+
+	r.setAttribute("class", "rect");
+
+	room_canvas.appendChild(r);
+	return r;
+}
+
+function render_item(room, item) {
+
+	// top and left is relative to room
+	let left = room.offset_x + item.left;
+	let top = room.offset_y + item.top;
+
+	let r = rect( left, top, item.width, item.height, item.background );
+
+	if( item.rotation != 0 ) {
+		var current_style = r.getAttribute("style");
+		current_style += " transform: rotate(" + item.rotation + "deg);";
+		console.log(current_style);
+		r.setAttribute("style", current_style);
+	}
+
+	r.onmouseover = function() {
+		document.getElementById("size").innerHTML = "@("+ item.left + "," + item.top + ") " + item.width + "x" + item.height;
+	};
+	r.appendChild( document.createTextNode(item.name) );
+}
+
+function render_room( room ) {
+
+	current_room = room;
+	while(room_canvas.hasChildNodes()) {
+		room_canvas.removeChild(room_canvas.firstChild);
+	}
+
+	let x = (WIDTH - room.width)/2;
+	let y = (HEIGHT - room.height)/2;
+	room.offset_x = x;
+	room.offset_y = y;
+	rect(x, y, room.width, room.height, "rgb(169, 108, 106)");
+
+	room.items.forEach( item => render_item(room, item) );
+
+}
+
+function render() {
+
+let room_buttons = document.getElementById("rooms");
+rooms.forEach( room => { 
+	let b = document.createElement("button");
+	b.appendChild(document.createTextNode(room.name));
+	b.onclick = function() { render_room( room ) };
+	room_buttons.appendChild(b);
+});
+
+render_room(rooms[3]);
+
+let stage = document.getElementById("room");
+stage.onclick = function( event ) {
+ 
+	console.log( lastclick_x, lastclick_y);
+	let diff_x = lastclick_x - (event.clientX - current_room.offset_x);
+	let diff_y = lastclick_y - (event.clientY - current_room.offset_y);
+
+ 	lastclick_x = event.clientX - current_room.offset_x;
+ 	lastclick_y = event.clientY - current_room.offset_y;
+
+	console.log( lastclick_x, lastclick_y);
+	let distance = Math.floor(Math.sqrt(diff_x*diff_x + diff_y*diff_y));
+	console.log( lastclick_x, lastclick_y, distance);
+	document.getElementById("distance").innerHTML = "Distance: " + distance + "cm";
+};
+
+}
+
+</script>
+
+</head>
+<body onload="init(); render();">
+<div id="rooms">
+</div>
+<div id="size"></div>
+<div id="distance"></div>
+
+<div id="room">
+</div>
+
+</body>
+</html>
