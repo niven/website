@@ -75,7 +75,6 @@ chris.items.push(Item("Rug 230x160", (288-230)/2, 280, 230, 160, "coral"));
 chris.items.push(Item("Bed", (288-180)/2, 0, 180, 200, "saddlebrown"));
 chris.items.push(Item("Chest", (288-140)/2, 200, 140, 40, "cornsilk"));
 chris.items.push(Item("", 0, 10, 8, 460, "oldlace"));
-chris.items.push(Item("Cupboard", (288-120)/2, 547-65, 120, 65, "maroon"));
 chris.items.push(Item("W", -5, 65, 10, 90, "cornflowerblue"));
 chris.items.push(Item("W", -5, 65+90+55, 10, 90, "cornflowerblue"));
 chris.items.push(Item("W", -5, 65+90+55+90+55, 10, 90, "cornflowerblue"));
@@ -94,6 +93,10 @@ jacen.items.push(Item("W", 450, 65+90+55, 10, 90, "cornflowerblue"));
 jacen.items.push(Item("Door", 20, 307, 90, 20, "grey"));
 
 let office = Room("Office", 355, 218);
+office.items.push(Item("Rug 300x200", 355-300-50, (218-200)/2, 300, 200, "burlywood"));
+office.items.push(Item("Desk", 355-60, (218-150)/2, 60, 150, "grey"));
+
+
 let living = Room("Living", 980, 547);
 living.items.push(Item("Stairs", 402, 547-100, 220, 100, "white"));
 living.items.push(Item("Passage", 402-24, 547-100-120, 244, 120, "lightgray"));
@@ -101,8 +104,9 @@ living.items.push(Item("Toilet", 402+104-24, 547-100-120-104, 140, 104, "lightgr
 living.items.push(Item("French", -5, 52, 10, 152, "cornflowerblue"));
 living.items.push(Item("", 0, 52+152+136, 22, 547-(52+152+136+55), "oldlace"));
 living.items.push(Item("?", 980-15, 45, 15, 220, "oldlace"));
+living.items.push(Item("Fridge", 402+220, 547-60-140, 60, 60, "white"));
 living.items.push(Item("Stove", 402+220, 547-60, 120, 60, "silver"));
-living.items.push(Item("Counter", 402+220+120, 547-60, 980-(402+220+120), 60, "dimgray"));
+living.items.push(Item("Counter", 402+220+120, 547-60, 980-(402+220+120+60), 60, "dimgray"));
 living.items.push(Item("Piano?", 450, 0, 180, 40, "darkgray"));
 
 
@@ -114,7 +118,9 @@ living.items.push(Item("Table 260x90", 980-(260), 140, 260, 90, "peru", 90));
 living.items.push(Item("Plant Wall", 980-(260+35), 0, 260+35, 30, "mediumseagreen"));
 living.items.push(Item("P W", 402-(24+30), 547-220, 30, 220, "mediumseagreen"));
 
-living.items.push(Item("Rug 400x300", 15, 15, 400, 300, "url('Stonewash.jfif')"));
+living.items.push(Item("Cupboard", 402+220, 547-60-140-110, 60, 110, "maroon"));
+
+living.items.push(Item("Rug 400x300", 15, 15, 400, 300, "powderblue url('Stonewash.jfif')"));
 living.items.push(Item("Big Seat 146x100", 40, 60, 146, 110, "goldenrod", -45));
 living.items.push(Item("Lounge 105x175", 40, 547-175, 105, 175, "lightsteelblue"));
 living.items.push(Item("Seat 2AL 183x100", 40+105, 547-100, 183, 100, "lightsteelblue"));
@@ -123,7 +129,7 @@ living.items.push(Item("Seat 2AL 183x100", 40+105, 547-100, 183, 100, "lightstee
 let ryan = Room("Ryan", 547, 358);
 ryan.items.push(Item("", 547, 70, 10, 358-70,  "gold"));
 ryan.items.push(Item("", 547-340, 0, 340, 70,  "lightgray"));
-ryan.items.push(Item("Rug 280x190", 65, 120, 280, 190, "coral"));
+ryan.items.push(Item("Rug 240x200", 80, 120, 240, 200, "coral"));
 ryan.items.push(Item("________ __________ Rug 120", 380, 190, 120, 120, "oldlace"));
 ryan.items.push(Item("Bed", 547-200, 70, 200, 140, "cornsilk"));
 ryan.items.push(Item("NStnd", 547-40, 210, 40, 55, "grey"));
@@ -198,7 +204,7 @@ rooms.forEach( room => {
 	room_buttons.appendChild(b);
 });
 
-render_room(rooms[3]);
+render_room(rooms[2]);
 
 let stage = document.getElementById("room");
 stage.onclick = function( event ) {
