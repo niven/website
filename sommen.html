@@ -112,6 +112,8 @@ table.summary tr td {
 // sum types
 var MUL = 1;
 var DIV = 2;
+
+let MULTIPLY_MAX = 12
 var division_with_remainders = false;
 
 var countdown_time = {
@@ -152,7 +154,7 @@ function Sum() {
 		}
 	}
 	if( sum_type == MUL ) {
-		other_num = num( 10 ); 
+		other_num = num( MULTIPLY_MAX ); 
 	}
 
 	return {
@@ -195,7 +197,7 @@ var target = 0;
 var answer;
 var min_score = 4; // this is the min score. possible points are max( min_score, min(x, y) )
 var initial_points = 0;
-var base_score = 400;
+var base_score = 100;
 var time = 10;
 var startTime;
 var intervalID;
