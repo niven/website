@@ -1,0 +1,18 @@
+digraph G {
+  layout=fdp
+  splines="curved"
+  
+  
+  labelloc="t"
+  label="TITLE"
+ 
+ subgraph cluster_xxx {
+   labelloc="t"
+   label="SUBGRAH"
+
+ }
+
+  foo -> bar
+
+}
+

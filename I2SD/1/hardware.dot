@@ -1,0 +1,68 @@
+digraph G {
+  layout=fdp
+  splines="curved"
+  
+  
+  labelloc="t"
+  label="Hardware"
+ 
+ subgraph cluster_tur {
+   labelloc="t"
+   label="Turing Machine"
+
+ }
+ cluster_tur  -> cluster_ser [weight = 1]
+   
+  subgraph cluster_ser {
+    labelloc="t"
+    label="Computer"
+ 
+    Compute
+    Data
+    "I/O"
+  }
+  Compute -> cluster_cpu;
+  "I/O" -> cluster_per
+  
+  subgraph cluster_cpu {
+    labelloc="t"
+    label="CPU"
+ 
+    ALU
+    CU
+    AGU
+    MMU
+    FPU
+    opcode
+  }
+  
+  
+  
+    subgraph cluster_data {
+   labelloc="t"
+   label="Data"
+  
+   SDD
+   HDD
+   RAM
+   ROM
+  
+    }
+    Data -> cluster_data;
+   
+  
+    subgraph cluster_per {
+   labelloc="t"
+   label="Input/Output"
+  
+   Monitor
+   Keyboard
+   Mouse
+   Printer
+   Scanner
+   Network
+   USB
+   Bluetooth
+    }
+}
+

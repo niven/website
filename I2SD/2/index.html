@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Lecture 2</title>
+   <meta charset="utf-8">
+   <style type="text/css">
+
+      body { 
+			font-family: 'Gill Sans'; 
+		}
+      h1, h2, h3 {
+        font-family: 'Gill Sans';
+        font-weight: normal;
+      }
+		
+		.remark-slide-content {
+			font-size: 24pt;
+		}
+		.fact {
+			font-variant: small-caps;
+			background-color: whitesmoke;
+			border: dashed thin grey;
+			border-radius: 1ex;
+			padding: 0 0.2em;
+		}
+		.em {
+			font-variant: small-caps;
+			background-color: oldlace;
+		}
+		.w100 img {
+			width: 100%;
+		}
+		.h50 img {
+			height: 250px;
+		}
+		
+      
+   </style>
+</head>
+
+<body>
+   
+       <textarea id="source">
+class: center, middle
+
+# Lecture 2
+# Operating Systems, Internet &amp; Datastructures
+---
+
+# Discuss homework
+
+# Questions from you
+
+---
+# Operating System
+
+- Between hardware and applications
+- Abstraction for hardware
+
+.h50[![os](os.png)]
+
+---
+# OS - types
+
+## Unix-like (Linux, macOS)
+
+- Modular design
+- Simple tools and well defined functions
+- CLI
+
+## Windows
+- Desktop users
+- GUI
+
+---
+# OS - Kernel
+
+.h50[![os](kernel.png)]
+
+- Memory management (RAM, Virtual Addressing)
+- I/O
+- Resource management (threads, security)
+- Device management (abstractions)
+
+
+---
+# OS - User
+
+- File system
+- Multitasking
+- Security
+- User interface
+
+---
+# Internet
+
+- Started in the 1980s
+- Cables &amp ISPs
+- TCP/IP
+- Open standards
+
+Protocols
+- DNS 
+- FTP 
+- HTTP 
+- IMAP
+- NTP
+- SSH
+
+
+---
+# Internet - IP
+
+IP Address: 83.161.158.7
+.w100[![ip](ip.png)]
+
+
+---
+# Web
+
+- Invented in 1989
+
+The web uses .em[URL]s to retrieve .em[HTML] documents over the internet using the .em[HTTP] protocol. HTML documents are then rendered by .em[Web browsers] using .em[CSS] to style the documents and .em[JavaScript] to provide interactivity.
+
+---
+# Web - technology
+
+DNS: Resolve a domain name to an IP address
+
+URL: proto://domain/resource?parameters
+
+HTTP
+```html
+GET /articles/intro_software.html
+GET /search?query=cats
+
+POST /article/new
+	title=My Tasty Recipe
+	publish_date=2020-11-03
+	author=Justine
+	tags=recipes,vegetarian,winter
+```
+
+---
+HTTP
+
+```html
+200 OK
+404 Not Found
+500 Internal Server Error
+```
+---
+# Web - HTML
+
+```html
+<html>
+	<body>
+		<h1>Risotto with mushrooms</h1>
+		<p class="intro">
+			Long-ass story about my childhood
+		</p>
+		<img src="/images/recipes/risotto.jpg"/>
+		<p>More digression</p>
+		<h1>Recipe</h1>
+		<h2>Ingredients</h2>
+		<ul>
+			<li>Rice</li>
+			<li>Broth</li>
+			<li>Mushrooms</li>
+			<li>Parmesan</li>
+		</ul>
+		<h2>Instructions</h2>
+		<p>Cook the rice in the broth, 
+			fry the mushrooms and mix, 
+			add parm.
+		</p>
+	</body>
+</html>
+```
+---
+# Web - CSS
+
+```css
+h1, h2 {
+	font-family: Georgia;
+	font-size: 24pt;
+}
+
+.intro {
+	font-style: italic;
+}
+
+ul {
+	background-color: rgb(64, 255, 200);
+}
+```
+
+---
+# Web - result!
+
+![web](web.png)
+
+---
+# Web - browsers
+
+Chrome, Edge, Firefox, Opera...
+
+- Load resources using HTTP
+- Transform HTML into a DOM
+- Apply CSS to the DOM
+- Run JavaScript
+- Draw stuff on the screen
+
+*Much suffering*
+
+---
+# Datastructures
+
+Types are convenient ways to deal with actual data like numbers and strings. If we have collections of data it is useful to structure these for 3 reasons:
+
+- Mapping real world relationships
+- Understanding the data
+- Writing universal algorithms
+
+---
+# Datastructures
+
+.w100[![ds](ds_e.png)]
+
+---
+# Datastructures
+
+*Trees:* HTML documents, File systems, DNS
+
+*Maps:*
+CSS attributes, Database records
+
+*Lists:* File contents, article tags
+
+*Graphs:* Internet, social networks
+
+---
+# Evaluation
+
+# What interesting or boring?
+# What was hard or easy?
+
+---
+# Homework
+
+- Let's read an [RFC on Networking](https://www.rfc-editor.org/rfc/rfc1925.txt)
+- MDN is a great resource. [Quick into to HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+- Create a HTML page for a topic of your own choosing. If you get stuck [MDN - Introduction_to_HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started) can help you out.
+- What datastructures would you use to model:
+	- your family
+	- DNA
+	- a metro network
+	- a postal address
+	- supermarket inventory
+	- your finances
+
+
+</textarea>
+
+    <script src="../remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+</body>
+
+
+</html>

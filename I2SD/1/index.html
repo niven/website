@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Lecture 1</title>
+   <meta charset="utf-8">
+   <style type="text/css">
+
+      body { 
+			font-family: 'Gill Sans'; 
+		}
+      h1, h2, h3 {
+        font-family: 'Gill Sans';
+        font-weight: normal;
+      }
+		
+		.remark-slide-content {
+			font-size: 24pt;
+		}
+		.fact {
+			font-variant: small-caps;
+			background-color: whitesmoke;
+			border: dashed thin grey;
+			border-radius: 1ex;
+			padding: 0 0.2em;
+		}
+		.em {
+			font-variant: small-caps;
+			background-color: oldlace;
+		}
+		.w100 img {
+			width: 100%;
+		}
+		.h50 img {
+			height: 600px;
+		}
+		
+      
+   </style>
+</head>
+
+<body>
+   
+       <textarea id="source">
+class: center, middle
+
+# Lecture 1
+# Computer Science, Hardware &amp; Programming in Go
+
+---
+
+# Discuss homework
+
+# Questions from you
+
+---
+
+# Computer Science
+
+Study of 
+- .em[algorithms]: a sequence of well-defined instructions to solve a problem
+- Artificial Intelligence: systems that exhibit autonomous behaviour. "We didn't put it in."
+- Communication &amp; Security (Cryptography)
+- Computer architecture (Hardware)
+- Computer graphics &amp; vision
+- Programming languages &amp; compilers
+
+---
+# Boolean Logic
+
+True, False
+
+.w100[![Bitwise operators](bitops.png)]
+
+---
+# Binary: 0 1 &rarr; off on
+
+
+.w100[![counting](counting.png)]
+
+8 bits &rarr; 1 byte
+
+---
+# Addition
+
+.w100[![add](add.png)]
+
+---
+# Half adder in hardware
+.w100[![add](adder.png)]
+
+Which bitwise operators do we need?
+
+---
+.h50[![Overview](hw.png)]
+
+---
+# Assembly
+
+## opcodes: instructions for bytes
+```go
+ADD SUB MUL DIV
+AND OR XOR
+MOV
+CMP JMP
+```
+Luckily, .em[compilers] translate programming languages into assembly, then assemblers translate that into microcode (1s and 0s) and then hardware does it's thing.
+
+```go
+var a = 5      &rarr; MOV AX, 5
+a = a + 2      &rarr; ADD AX, 2
+```
+
+---
+# Why learn Go?
+
+- Straightforward
+- Widely used
+- Good tooling
+
+Resources:
+- https://tour.golang.org/welcome/1
+- https://play.golang.org/
+- Google: "foo bar golang"
+
+---
+# Programming 5
+
+## 📦 Variables
+## 🗄 Types
+## 🤖 Control structures
+## 📋 Statements
+## 🔄 Functions
+
+---
+# 📦 Variables
+
+A name for a value of a type
+
+```go
+var name string = "Justine"
+
+var age int = 29
+
+var is_adult bool = true
+```
+
+.fact[Name] is up to you
+
+.fact[Type] is what kind of thing it is
+
+.fact[Value] is what it actually is
+
+---
+# 🗄 Types
+
+Data is ultimately a bunch of bytes. But for programming we make higher level abstractions:
+
+```go
+bool           &rarr;   true, false
+
+int            &rarr;   -10, 0, 123   
+
+float64        &rarr;   3.1415
+
+string         &rarr;   "Hello", "<html>"
+
+[]int, []string, ... &rarr;   {3, 5, 7}, {"Yes", "No", "Maybe"}
+
+map[int]string       &rarr;   { 3: "Wine", 7: "Beer" }
+```
+
+
+---
+# 🤖 Control structures
+
+.fact[IF] making choices about what to do
+```go
+   if age > 18  {
+      // can buy beer
+   } else {
+      // lemonade
+   }
+```
+   
+   
+.fact[FOR] repeating things
+```go
+   sum := 0
+   for i := 0; i < 10; i++ {
+      sum = sum + i
+   }
+```
+
+---
+
+# 📋 Statements
+
+Programs are nothing more than a bunch of statements
+
+```go
+
+   var min_age int = 18 // create a new variable
+   var ages = [3]int{16, 15, 21} // array of 3 ints
+   
+   for i := 0; i < lngth(ages); i++ {
+      if ages[i] >= min_age {
+         fmt.Println("Can buy beer!")
+      }
+   }
+```
+
+Exercise: find the bug!
+
+
+---
+# 🔄 Functions
+
+Modern programming languages have functions to break things up.
+
+```go
+
+   func is_legal_drinking_age( age int ) bool {
+      
+      var legal bool = false
+      
+      if age >= 18 {
+         legal = true
+      }
+      return legal
+   }
+
+
+   var min_age int = 18 // create a new variable
+   var ages = [3]int{16, 15, 21} // array of 3 ints
+   
+   for i := 0; i < length(ages); i++ {
+      if is_legal_drinking_age( ages[i] ) {
+         fmt.Println("Can buy beer!")
+      }
+   }
+
+
+```
+
+---
+# Congratulations! 🥳
+
+That's all you need to know to write all possible software.
+
+... but nobody writes code in assembly by hand anymore 😢
+
+*Next Time on Go Programming: Text Editors, IDEs &amp libraries *
+
+
+---
+# Evaluation
+
+# What interesting or boring?
+# What was hard or easy?
+---
+# Homework
+
+- Finish this program https://play.golang.org/p/3TcxpKKpJ4L (we can do it together)
+- Reading: *The P vs NP problem* - https://anthonybonato.com/2018/06/20/the-p-vs-np-problem-2/
+- Watch this talk by James Mickens *"Life As A Developer: My Code Does Not Work Because I Am A Victim Of Complex Societal Factors That Are Beyond My Control And Do Not Involve My Own Laziness"*: https://www.youtube.com/watch?v=7Nj9ZjwOdFQ (30m)
+
+</textarea>
+
+    <script src="../remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+</body>
+
+
+</html>

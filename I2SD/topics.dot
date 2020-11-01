@@ -1,0 +1,166 @@
+graph G {
+  layout=fdp
+  splines="curved"
+  
+  
+  labelloc="t"
+  label="Software Development"
+  
+  subgraph cluster_fmt {
+    labelloc="t";
+    label="Standards";
+    
+    XML
+    YAML
+    JSON
+    SQL
+    Markdown
+  }
+  SQL -- Database
+  
+  
+  
+  subgraph cluster_sec {
+    labelloc="t";
+    label="Security";
+    
+    Hacking
+    ACL
+    Auditing
+    Pentesting
+  }
+  Hacking
+  
+  subgraph cluster_suf {
+    labelloc="t";
+    label="Suffering";
+    
+    Money
+    "Date & Time"
+    I18N
+    Unicode
+  }
+  
+  
+  subgraph cluster_prog {
+    labelloc="t";
+    label="Programming";
+    rank = same;
+       subgraph cluster_conc {
+           labelloc="t";
+           label="Concepts";
+           OOP
+           Functional
+           Procedural
+           GUI
+           "Design Patterns"
+          Templates
+       }
+       
+       subgraph cluster_teq {
+          labelloc="t";
+          label="Techniques";
+          Profiling
+          Debugging
+          TDD
+       }
+       
+       subgraph cluster_lang {
+           labelloc="t";
+           label="Languages";
+             Assembly
+             Go
+             Perl
+             PHP
+             Python
+             Java
+             "C/C++"
+             Javascript
+       }
+        
+  }
+  
+  subgraph cluster_compsci {
+    labelloc="t";
+    label="Computer Science";
+    "Machine Learning"
+    Algorithms
+    Cryptography
+    Binary
+    Compiler
+    "Boolean Logic"
+    
+    subgraph cluster_ds {
+       labelloc="t";
+       label="Datastructures";
+       Hash
+       List
+       "Graph"
+       Tree
+    }
+
+  }
+  
+ subgraph cluster_serv {
+     labelloc="t";
+     label="Infrastructure";
+     Cloud
+     DNS
+     CDN
+     "TCP/IP"
+ }
+ Cloud -- Container
+ 
+
+ 
+ subgraph cluster_tools {
+     labelloc="t";
+     label="Tools";
+     "Text Editor"
+     IDE
+     SSH
+     "Version Control"
+     "CI/CD"
+ }
+ 
+ subgraph cluster_soft {
+     labelloc="t";
+     label="Components";
+     Database -- ORM
+     Webserver
+     "Big Data"
+     Framework
+     Container -- cluster_os
+ }
+  
+  subgraph cluster_hw {
+    labelloc="t";
+    label="Hardware";
+    RAM
+    Disk
+    Network
+    CPU
+  }
+  cluster_hw -- Assembly
+  
+  subgraph cluster_os {
+    labelloc="t";
+    label="Operating System";
+    Kernel
+    CLI
+    Cron
+  }
+  
+  subgraph cluster_web {
+    labelloc="t";
+    label="Web";
+    HTTP
+    HTML
+    CSS
+    REST
+  }
+  Javascript -- cluster_web
+
+
+}
+

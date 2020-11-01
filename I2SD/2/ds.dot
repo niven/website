@@ -1,0 +1,45 @@
+digraph G {
+  splines="curved"
+  
+  
+  labelloc="t"
+  label="Datastructures"
+ 
+  subgraph cluster_li {
+    labelloc="t"
+    label="List"
+    {rank = same; a; b; c; d}
+    d -> c -> b -> a
+  }
+  subgraph cluster_ma {
+    labelloc="t"
+    label="Map"
+    node_A [shape=record    label="Name=Justine|{a=5|b=6|c=8}|cats=true"];
+    
+
+  }
+  
+  subgraph cluster_tr {
+    labelloc="t"
+    label="Tree"
+    e -> f -> h
+    e -> g -> i
+    g -> j
+    
+
+  }
+  subgraph cluster_gr {
+    labelloc="t"
+    label="Graph"
+
+    { rank=same; v; w;}
+
+    u -> v -> w[dir=back]
+    u -> w -> x
+    x -> v[dir=back]
+    
+    
+  }
+ 
+}
+
