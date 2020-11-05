@@ -36,7 +36,12 @@
 			height: 250px;
 		}
 		
+		.remark-code {
+			font-size: 12px !important;
+			background-color: deepskyblue;
+		}
       
+
    </style>
 </head>
 
@@ -46,7 +51,7 @@
 class: center, middle
 
 # Lecture 3
-# Text Editors + IDEs, Programming in JavaScript &amp; Database + SQL
+# Text Editors + IDEs, Database + SQL
 ---
 
 # Discuss homework
@@ -55,33 +60,249 @@ class: center, middle
 
 ---
 # Text Editors
+
+
+- Syntax Highlighting
+- Themes and colors
+- Line numbers
+- Managing multiple files
+- Fixed width fonts
+
+var color = "white";<br>
+var where = "there";
+```c
+var color = "blue";
+var where = "west";
+```
+
+
+---
+# Text Editors - SQL
+
+```sql
+	SELECT
+		orders.id,
+		orders.order_transaction_id,
+		orders.payment_transaction_id,
+		vendor.user_code,
+		orders.order_amount,
+		opa.user_address,
+		IFNULL(opa.user_contact_number,'') as user_contact_number,
+		opa.delivery_time,customer.name,customer.user_name,
+		IF(up.user_image IS NULL,
+			CONCAT('legacy/','no-image.jpg'),
+			CONCAT('legacy/users/',up.user_image)
+		) as consumer_image 
+	FROM
+		order_status os
+		join order_lines ol on os.order_line_id=ol.id
+		LEFT JOIN orders on os.order_id = orders.id
+		INNER JOIN users vendor ON vendor.id=os.vendor_id
+		JOIN users customer on orders.customer_id = customer.id
+		JOIN order_pickup_address opa ON orders.id = opa.order_id
+		LEFT JOIN user_profiles up ON customer.id = up.user_id
+		JOIN order_routes ors ON ors.order_id = orders.order_transaction_id
+	WHERE
+		(os.status='Allocated' OR os.status='Loaded')
+		AND opa.pick_type = 'delivery'
+		AND date(ors.created) = CURRENT_DATE()
+```
+
+---
+# Text Editors - HTML
+```html
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>&#127836; Ramen in Amsterdam</title>
+
+	<link rel="stylesheet" type="text/css" href="main.css"/>
+</head>
+
+<body>
+
+<div id="main">
+
+<h1>Ramen Restaurants in Amsterdam</h1>
+<dl>
+   
+	<dt><a href="https://www.otemba-ramen.com/">OTEMBA Ramen</a></dt>
+	<dd>
+		<p>
+		Not visited
+		</p>
+		<ul class="tray">
+			<li>Vegetarian</li>
+			<li>Tonkotsu</li>
+			<li>Paitan</li>
+			<li>Lunch</li>
+		</ul>
+	</dd>
+```
+
+---
+# Text Editors - Go
+
+```golang
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var numbers = []int{2, 17, 113, 57, 17, 18, 19, 22, 4}
+
+	// loop over all the numbers and print them
+	for i := 0; i < len(numbers); i++ {
+		fmt.Println(numbers[i])
+	}
+
+	fmt.Println() // print a NewLine
+
+	// loop over all the numbers and remember the last odd number
+	var lastOddIndex int = -1
+	for i := 0; i < len(numbers); i++ {
+		if numbers[i]%2 == 1 {
+			lastOddIndex = i
+		}
+	}
+	// PrintF -> PrintFormat. %d is an int, %s is a string, %f is a float!
+	fmt.Printf("Last odd index: %d, last odd number: %d\n", lastOddIndex, numbers[lastOddIndex])
+
+	// loop over all the numbers and sum them
+	var sum int = 0
+	for i := 0; i < len(numbers); i++ {
+		sum += numbers[i]
+	}
+	fmt.Printf("Sum of the %d numbers is: %d\n", len(numbers), sum)
+
+	// Assignment: implement an algorithm to find the highest number
+	// You can do it! Ask for help!
+}
+
+```
+
+
 ---
 # IDE
+
+- Programming projects
+- Autocomplete
+- Syntax checking
+- Code formatting
+- Debugging
+- Refactoring
+- Build system
+- Testing
+- Kitchen sink
+
 ---
-# Programming in JavaScript
+# IDE
+
+.w100[![ide](ide.png)]
+
 ---
-# SLIDE
+# IDE - Demo
+
 ---
-# Relational Database
+# Database - ACID
+
+- Atomicity: each transaction is treated as a single "unit", which either succeeds completely, or fails completely.
+
+- Consistency: a transaction can only bring the database from one valid state to another.
+
+- Isolation: concurrent execution of transactions leaves the database in the same state as if the transactions were executed sequentially.
+
+- Durability: once a transaction has been committed, it will remain committed.
+
+---
+# Database - Relational
+
+
+- Tables with columns and rows
+- Declarative
+- Keys to link rows between tables
+- MySQL, MSSQL, PostgresQL, MariaDB, OracleDB. SQLite
+
+---
+# Database - Relational - Index
+
+.w100[![btidx](btree-index.png)]
+
+
+---
 # SQL
 
+Declarative language to Define, Query and Manipulate data in your DB.
 
-- 
+```sql
+CREATE TABLE pets (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	species ENUM('cat', 'dog')
+);
+```
+```sql
+SELECT
+	species,
+	COUNT(*) AS num
+FROM
+	pets
+GROUP BY
+	species;
+```
+```sql
+UPDATE
+	pets
+SET
+	name = 'Spice'
+WHERE
+	name = 'Sipce';
+```
 
---
-# *"NoSQL"*
 
-- Key/Value
-- Document
-- Graph
 
 ---
-# Evaluation &amp; Homework
+# Database - NoSQL
+
+- Key/Value
+	- Store: whatever (text, images, PDFs)
+	- Pros: Fast lookup, low overhead
+	- Use: Caching
+	- Examples: memcached, Redis
+- Document store
+	- Store: documents (XML, JSON, YAML)
+	- Pros: Search on fields in the document
+	- Use: Collections, tags
+	- Examples: Elasticsearch, MongoDB
+- Graph, Spatial, Object, ...
+
+---
+# Database - GraphQL
+
+.w100[![gql](gql.jpg)]
+
+
+---
+# Evaluation
 
 # What interesting or boring?
 # What was hard or easy?
 
+---
+# Homework
 
+- Install: the [Go compiler](https://golang.org/doc/install), [iTerm](https://iterm2.com/), [TextMate](https://macromates.com/) &amp; [Visual Studio Code](https://code.visualstudio.com/) 
+- Install [Homebrew](https://brew.sh/)
+- Use Homebrew to install **fish**,  **git** &amp; **MySQL**
+- Copypaste the Go code into a new file in Visual Code (VC), save it and install the Go extension
+![gotools](gotools.png)
+- Do the assignment (ask for help!)
+	
 
 
 </textarea>
@@ -89,7 +310,9 @@ class: center, middle
     <script src="../remark-latest.min.js">
     </script>
     <script>
-      var slideshow = remark.create();
+      var slideshow = remark.create({
+      	"highlightStyle": "darcula"
+      });
     </script>
 </body>
 
