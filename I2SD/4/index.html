@@ -35,7 +35,10 @@
 		.h50 img {
 			height: 250px;
 		}
-		
+		.mini pre .remark-code {
+		font-size: 12px !important;
+
+		}
       
    </style>
 </head>
@@ -54,15 +57,156 @@ class: center, middle
 # Questions from you
 
 ---
-# SLIDE
----
-# SLIDE
----
-# Programming in Go
+# Concepts - OOP
 
-- modules
-- HTTP server
+- Make your own data types!
+- Abstraction
+- Hide how it works internally	
 
+```go
+type Cat struct{ 
+    Name		string 
+	Color       string
+    Age         int
+    DinnerGrams float64
+}
+
+func (c Cat) Description() string {
+	return c.Name + "/" + c.Color
+}
+
+var spice Cat = Cat{
+	Name: "Spice"
+	Color: "orange"
+}
+```
+
+---
+# Concepts - Packages &amp; libs
+
+- Group functions together
+	- math stuff
+	- Type + functions for it
+	- GUI stuff
+	- Database stuff
+	- ... 
+- Suffering: versions & updating
+- Use it in your own code
+```go
+import "fmt"
+```
+
+---
+# Concepts - Templates
+
+```go 
+package main
+
+import (
+	"os"
+	"text/template"
+)
+
+type Cat struct {
+	Name  string
+	Color string
+}
+
+func main() {
+
+	var spice Cat = Cat{Name: "Spice", Color: "Orange"}
+
+	var t = template.New("cat_facts")
+
+	t.Parse("Hello {{.Name}}, your colour is {{.Color}}\n")
+
+	t.Execute(os.Stdout, spice)
+}
+
+``` 
+
+---
+# Concepts - GUI
+
+- Interact with a computer visually
+- Assemble components:
+	- Window
+	- Menu Bar
+	- Button
+	- Text field
+	- Dialog
+	- Image
+- Events & Listeners
+- Examples:
+	- iPad, Windows
+	- HTML
+	- ATM
+
+
+
+---
+# Programming in JavaScript
+
+- Just like Go except a different syntax
+	- No static types
+	- Builtin libraries to access the DOM
+
+```html
+<p id="intro" name="Foo">Some text</p>
+
+<button onclick="show_dialog();">Click Me!</button>
+```
+```javascript
+var intro = document.getElementById("intro");
+intro.setAttribute("name", "Bar");
+
+function show_dialog() {
+	var stuff = {
+		"id": 5
+		"name": "Ash"
+	}
+};
+```
+
+---
+# Debugging
+.mini[
+```go
+package main
+
+import "fmt"
+
+type Sheep struct {
+	Name  string
+	Ready bool
+}
+
+func count(num int, s Sheep) {
+	fmt.Printf("Sheep number %d is called %s\n", num, s.Name)
+
+	if s.Ready {
+		fmt.Println("\tReady!")
+	} else {
+		fmt.Println("\tNot ready :(")
+	}
+}
+
+func main() {
+
+	var flock []Sheep = []Sheep{
+		Sheep{Name: "Rob"},
+		Sheep{Name: "Harry", Ready: true},
+		Sheep{Name: "Sally"},
+	}
+
+	var i int
+	for i = 0; i < len(flock); i++ {
+		count(i, flock[i])
+		fmt.Println()
+	}
+}
+```
+]
 ---
 # Evaluation
 
@@ -70,9 +214,9 @@ class: center, middle
 # What was hard or easy?
 
 ---
-# Homework
+# Homework 1/2
 
-Here is some vague data:
+Data modeling (here is some vague data):
 
 ```
 Spice, cat, birthday ????, male, orange
@@ -86,6 +230,14 @@ Vet appointments: Ash, 2020-11-04, reason: annual checkup
 ```
 - Use your command line MySQL client to create a database with tables for this data.
 - Enter this data into your database (add some more things in that make sense, add some more pets and things)
+
+
+---
+# Homework 2/2
+
+- Watch this talk by James Mickens: [Life is Terrible: Let's Talk About the Web](https://vimeo.com/111122950) (30m)
+- Read [Falsehoods programmers believe about names](https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
+- Read this book review about a novel about debugging [The Bug](https://garethrees.org/2015/01/18/ullman/)
 
 
 </textarea>
