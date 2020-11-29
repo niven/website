@@ -46,7 +46,7 @@
 class: center, middle
 
 # Lecture 5
-# Version Control, Cryptography, Standards
+# CLI, Version Control, Standards
 ---
 
 # Discuss homework
@@ -54,7 +54,56 @@ class: center, middle
 # Questions from you
 
 ---
+# CLI
 
+Command Line Interface
+
+- Give commands to the OS using text
+- Interact with programs without a GUI
+- More expressive
+- But more to memorize
+- Everything is just bytes
+
+---
+# CLI Practice!
+
+```bash
+	# LiSt files
+	ls
+	# LiSt files (all, list mode, timestamp order, human)
+	ls -alth
+	# Print Working Directory
+	pwd
+	# print some text
+	echo "Hello"
+	# print some text, redirect to a file
+	echo "Hello" > hello.txt
+	# print contents of file
+	cat hello.txt
+	# browse a file
+	less hello.txt
+	# copy a file
+	cp hello.txt hello2.txt
+	# rename a file
+	mv hello2.txt foo.txt
+	# ReMove a file
+	rm foo.txt
+	# Change Directory
+	cd ..
+
+```
+
+---
+# CLI Practice!
+
+Let's run some programs
+
+```bash
+	mysql
+	ssh justine@interdictor.org / change1234
+```
+
+---
 # Version Control
 
 - Multiple people work on the same files
@@ -65,43 +114,98 @@ class: center, middle
 
 ---
 
-# Git
+# Let's try Git!
 
 ```bash
-	> git config --list
-	> git init
-	> git add
-	> git commit -m'The work I did'
-	> git checkout master
-	> git pull
-	> git push
-	> git checkout -b justine/new-feature
-	> git merge justine/new-feature
+	git config --list
+	git config --global user.name "Your Name"
+	git config --global user.email "you@domain.com"
+	git config --list
+```
+
+Make a [Github account](https://github.com/join) & create a [new repository](https://github.com/new)
+
+Create a public/private keypair
+```bash
+	ssh-keygen -t ed25519 -C "you@domain.com"
+	eval (ssh-agent -c)
+	ssh-add -l
+	ssh-add YOUR_KEY
+```
+Copy the public key to your clipboard & add it to your [Github SSH keys](https://github.com/settings/keys)
+
+
+---
+
+# Git on the command line
+
+```bash
+	git clone YOUR_REPO
+	# Copy your HTML recipe & photos to this directory
+	git status
+	git add --all
+	git status
+	git commit -m'My first html recipe'
+	git status
+	git checkout -b justine/new-recipe-veg-wellington
+	git branch -a
+	# add a file
+	git add FILE
+	git commit -m'MEANINGFUL_DESCRIPTION_HERE'
+	git log
+	git checkout master
+	git log 
+	# make a small change to your html file
+	git add FILE
+	git commit -m'MEANINGFUL_DESCRIPTION_HERE'
+	git log
+	git merge justine/new-recipe-veg-wellington
+	git log --graph
+	git push
+	# let's check your repo on github
 ```
 
 ---
+# Standards
 
-# SLIDE
----
+.w100[![xkcd](https://imgs.xkcd.com/comics/standards.png)]
 
-# SLIDE
----
-
-# SLIDE
----
-
-# SLIDE
----
-
-# SLIDE
+[XKCD](https://xkcd.com)
 
 ---
-# Evaluation &amp; Homework
+# Standards
+
+- For different versions of things
+	- HTML, HTTP, SQL, Go, JavaScript
+	- Everything is terrible because it's the wrong version
+	- Not everything supports all versions
+- For standardizing on things
+	- Time, Date, Currencies, Unicode
+	- Everything is just terrible
+	- At least it's consistent
+- Usually volunteers!
+- Don't memorize, just look it up
+
+---
+# Suffering
+
+Let's read this article about [Leap second hiatus](https://fanf.dreamwidth.org/133823.html)
+
+Your job:
+- High level summary of why this matters
+- Explain what the "technical words" in the article are
+
+---
+# Evaluation
 
 # What interesting or boring?
 # What was hard or easy?
 
+---
+ # Homework
 
+ - Peruse some of [these paintings](https://classicprogrammerpaintings.com/) and find one or two that are amusing to you
+ - Pixels are just 3 bytes: Red, Green and Blue. 24 Bits. Look at [Rainbow Smoke](http://rainbowsmoke.hu/home)
 
 </textarea>
 
