@@ -6,6 +6,7 @@ NBI	In computer networking and computer architecture, a NorthBound Interface of 
 NDP	The Neighbor Discovery Protocol (NDP, ND) is a protocol in the Internet protocol suite used with Internet Protocol Version 6 (IPv6).
 
 NIC	The Network Information Center (NIC), also known as InterNIC from 1993 until 1998, was the organization primarily responsible for Domain Name System (DNS) domain name allocations and X.500 directory services.
+NIS	Network Information Systems
 
 NMI	In computing, a non-maskable interrupt (NMI) is a hardware interrupt that standard interrupt-masking techniques in the system cannot ignore.
 

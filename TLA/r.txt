@@ -3,6 +3,7 @@ RAM	Random-access memory (RAM) is a form of computer data storage which stores f
 
 RDB	A Relational DataBase is a digital database whose organization is based on the relational model of data
 RDF	The Resource Description Framework (RDF) is a family of World Wide Web Consortium (W3C) specifications originally designed as a metadata data model. 
+RDN	A Relative Distinguished Name (RDN) is a component of the distinguished name.
 
 RFC	A Request for Comments (RFC) is a type of publication from the Internet Engineering Task Force (IETF) and the Internet Society (ISOC), the principal technical development and standards-setting bodies for the Internet.
 

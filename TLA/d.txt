@@ -6,6 +6,7 @@ DBI	-
 DDR	In computing, a computer bus operating with double data rate (DDR) transfers data on both the rising and falling edges of the clock signal.
 
 DIB	The device independent bitmap (DIB) file format or simply a bitmap (BMP), is a raster graphics image file format used to store bitmap digital images, independently of the display device.
+DIT	A Directory Information Tree (DIT) is data represented in a hierarchical tree-like structure consisting of the Distinguished Names (DNs) of directory service entries.
 
 DMS	The Disk Masher System (DMS) was an often used method on the Amiga, to create a compressed image of a disk (usually floppy). 
 
@@ -18,6 +19,7 @@ DRM	Digital rights management (DRM) schemes are various access control technolog
 DRY	In software engineering, don't repeat yourself (DRY) is a principle of software development, aimed at reducing repetition of information of all kinds, especially useful in multi-tier architectures.
 
 DSA	The Digital Signature Algorithm (DSA) is a Federal Information Processing Standard for digital signatures.
+DSE	A Directory Server Agent (DSA) Service Entry
 DSL	Digital subscriber line (DSL; originally digital subscriber loop) is a family of technologies that are used to transmit digital data over telephone lines.
 DSP	Digital signal processing (DSP) is the use of digital processing, such as by computers, to perform a wide variety of signal processing operations.
 

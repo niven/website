@@ -5,6 +5,7 @@ ACL	An access control list (ACL), with respect to a computer file system, is a l
 
 ADC	In electronics, an analog-to-digital converter (ADC, A/D, A-D, or A-to-D) is a system that converts an analog signal, such as a sound picked up by a microphone or light entering a digital camera, into a digital signal.
 ADF	Amiga Disk File (ADF) is a file format used by Amiga computers and emulators to store images of disks.
+ADR	An Architectural Decision Record (ADR) captures a single Architectural Decision and its rationale.
 
 AGL	Apple Graphics Library or AGL is the Apple Inc. API for use of OpenGL 3D graphics within Carbon windows.
 AGP	The Accelerated Graphics Port (AGP) is a high-speed point-to-point channel for attaching a video card to a computer system, primarily to assist in the acceleration of 3D computer graphics.
