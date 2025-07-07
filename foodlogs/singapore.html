@@ -1,0 +1,171 @@
+<!doctype html>
+<meta charset="utf-8">
+<head>
+	<script src="singapore_food.js"></script>
+	<script type="text/javascript">
+
+		const allergen_map = {
+			"E": "egg",
+			"N": "nuts",
+			"G": "gluten",
+			"L": "lactose",
+			"S": "shellfish"
+		};
+
+		let select, fn, fd, fa, fr, food_index, notes, ratings;
+		function init() {
+			document.title = title;
+			select = document.querySelector("#foods");
+			fn = document.querySelector("#name");
+			fd = document.querySelector("#description");
+			fr = document.querySelector("#rating");
+			notes = document.querySelector("#notes");
+			ratings = document.querySelectorAll("#ratings li");
+			
+			for( const [key,value] of Object.entries(allergen_map) ) {
+				allergen_map[key] = document.querySelector("#allergens #"+value);
+			}
+
+			select.setAttribute("size", foods.length);
+
+			const template = document.querySelector("#food");
+			foods.forEach( f => {
+				let option = template.content.cloneNode(true).querySelector("option");;
+				option.value = f.id;
+				option.appendChild( document.createTextNode(f.name) );
+				select.appendChild( option );
+			});
+
+		}
+
+		function select_food() {
+			food_index = select.options[select.selectedIndex].value;
+			notes.value = "";
+			check_rating("none");
+
+			let food = foods.find( f => f.id == food_index );
+			fn.textContent = food.name;
+			fd.textContent = food.description;
+			set_allergens(food.allergens);
+
+			let note = localStorage.getItem( "f_" + food_index + "_note" );
+			if( note ) {
+				notes.value = note;
+			}
+			let rating = localStorage.getItem( "f_" + food_index + "_rating" );
+			if( rating ) {
+				check_rating( rating );
+			}
+
+		}
+
+		function save_note() {
+			if( food_index ) {
+				localStorage.setItem("f_" + food_index + "_note", notes.value);
+			}
+		}
+		function rate( event ) {
+			if( food_index ) {
+				localStorage.setItem("f_" + food_index + "_rating", event.target.id);
+				check_rating(event.target.id);
+			}
+		}
+		function check_rating(target) {
+			ratings.forEach( r => r.setAttribute("class", r.id == target ? "check" : "") );
+		}
+		function set_allergens( str ) {
+			for (const [key, value] of Object.entries(allergen_map)) {
+				value.style.display = str.includes(key) ? "inline" : "none";
+			}
+		}
+		function export_log(){
+			let result = [];
+			foods.forEach( f =>
+				result.push( {
+					"id": f.id,
+					"rating": localStorage.getItem( "f_" + f.id + "_rating" ),
+					"note": localStorage.getItem( "f_" + f.id + "_note" )
+				})
+			);
+			navigator.clipboard.writeText(JSON.stringify(result));
+		}
+	</script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			display: flex;
+		}
+		select#foods {
+			width: 20%;
+			min-width: 10em;
+			margin: 1ex;
+			font-size: xx-large;
+		}
+		select#foods option {
+			padding: 1ex;
+		}
+
+		#content {
+			margin: 1ex;		
+			width: 80%;	
+			font-size: xx-large;
+		}
+
+		ul, ol {
+			list-style: none;
+		}
+		li {
+			display: inline;
+		}
+		textarea {
+			width: 80%;
+			margin-top: 1ex;
+		}
+		ol {
+			display: flex;
+  			flex-wrap: wrap;
+  			width: 80%;
+		}
+		ol li {
+			font-size: larger;
+			text-align: center;
+			flex: auto;
+		}
+		li.check {
+			background-color: deepskyblue;
+			border-radius: 0.5ex;
+		}
+	</style>
+</head>
+<body onload="init();">
+	<select id="foods" onchange="select_food();"></select>
+	<template id="food">
+  		<option>
+  		</option>
+	</template>
+
+	<div id="content">
+		<h1 id="name">Select food</h1>
+		<ul id="allergens">
+			<li id="egg">🥚</li>
+			<li id="gluten">🌾</li>
+			<li id="lactose">🥛</li>
+			<li id="nuts">🥜</li>
+			<li id="shellfish">🦐</li>
+		</ul>
+		<p id="description">...</p>
+		<ol id="ratings" onclick="rate(event);">
+			<li id="r_0">🤢</li>
+			<li id="r_1">🫤</li>
+			<li id="r_2">😐</li>
+			<li id="r_3">🤤</li>
+			<li id="r_4">😍</li>
+		</ol>
+		<textarea id="notes" onchange="save_note();" rows="3" placeholder="What did you think?"></textarea>
+	</div>
+	<a href="#" id="cog" style="margin: 1ex; font-size: 2em; height: 1.5em; text-decoration: none;" onclick="export_log();">⚙️</button>
+</body>
+</html>
