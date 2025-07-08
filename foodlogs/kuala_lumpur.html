@@ -87,7 +87,9 @@
 					"note": localStorage.getItem( "f_" + f.id + "_note" )
 				})
 			);
-			alert(JSON.stringify(result));
+			let log = document.querySelector("#log");
+			log.textContent = JSON.stringify(result);
+			log.style.display = log.style.display == "none" ? "block" : "none";
 		}
 	</script>
 	<style type="text/css">
@@ -165,8 +167,9 @@
 			<li id="r_3">🤤</li>
 			<li id="r_4">😍</li>
 		</ol>
-		<textarea id="notes" onchange="save_note();" rows="3" placeholder="What did you think?"></textarea>
+		<textarea id="notes" onchange="save_note();" rows="3" placeholder="Where did you eat, what did you think?"></textarea>
 	</div>
-	<a href="#" id="cog" style="margin: 1ex; font-size: 2em; height: 1.5em; text-decoration: none;" onclick="export_log();">⚙️</button>
+	<a href="#" id="cog" style="margin: 1ex; font-size: 2em; height: 1.5em; text-decoration: none;" onclick="export_log();">⚙️</a>
+	<textarea style="z-index: 300; position: fixed; margin: 2em; background-color: seagreen; display:none;" id="log"></textarea>
 </body>
 </html>
