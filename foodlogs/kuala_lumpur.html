@@ -12,10 +12,10 @@
 			"S": "shellfish"
 		};
 
-		let select, fn, fd, fa, fr, food_index, notes, ratings;
+		let food_list, fn, fd, fa, fr, food_index, notes, ratings;
 		function init() {
 			document.title = title;
-			select = document.querySelector("#foods");
+			food_list = document.querySelector("#foods");
 			fn = document.querySelector("#name");
 			fd = document.querySelector("#description");
 			fr = document.querySelector("#rating");
@@ -26,20 +26,18 @@
 				allergen_map[key] = document.querySelector("#allergens #"+value);
 			}
 
-			select.setAttribute("size", foods.length);
-
 			const template = document.querySelector("#food");
 			foods.forEach( f => {
-				let option = template.content.cloneNode(true).querySelector("option");;
-				option.value = f.id;
-				option.appendChild( document.createTextNode(f.name) );
-				select.appendChild( option );
+				let li = template.content.cloneNode(true).querySelector("li");;
+				li.value = f.id;
+				li.appendChild( document.createTextNode(f.name) );
+				food_list.appendChild( li );
 			});
 
 		}
 
 		function select_food() {
-			food_index = select.options[select.selectedIndex].value;
+			food_index = event.target.value;
 			notes.value = "";
 			check_rating("none");
 
@@ -96,6 +94,10 @@
 		* {
 			margin: 0;
 			padding: 0;
+			font-size: 5vh;
+		}
+		h1 {
+			font-size: 10vh;
 		}
 		body {
 			display: flex;
@@ -118,35 +120,43 @@
 		ul, ol {
 			list-style: none;
 		}
-		li {
+		ol#ratings li, ul#allergens li {
 			display: inline;
+		}
+		ul#foods li {
+			display: block;
 		}
 		textarea {
 			width: 80%;
 			margin-top: 1ex;
 		}
-		ol {
+		ol#ratings {
 			display: flex;
   			flex-wrap: wrap;
   			width: 80%;
 		}
-		ol li {
+		ol#ratings li {
 			font-size: larger;
 			text-align: center;
 			flex: auto;
 		}
-		li.check {
+		ol#ratings li.check {
 			background-color: deepskyblue;
 			border-radius: 0.5ex;
+		}
+
+		ul#foods li {
+			font-size: 8vh;
+			padding: 1vh;
+			margin-left: 1vh;
 		}
 	</style>
 </head>
 <body onload="init();">
 	<div style="height: 95vh; overflow: auto;">
-	<select id="foods" onchange="select_food();"></select>
+	<ul id="foods" onclick="select_food();"/>
 	<template id="food">
-  		<option>
-  		</option>
+  		<li></li>
 	</template>
 	</div>
 
@@ -167,7 +177,7 @@
 			<li id="r_3">🤤</li>
 			<li id="r_4">😍</li>
 		</ol>
-		<textarea id="notes" onchange="save_note();" rows="3" placeholder="Where did you eat, what did you think?"></textarea>
+		<textarea id="notes" onchange="save_note();" rows="5" placeholder="Where did you eat, what did you think?"></textarea>
 	</div>
 	<a href="#" id="cog" style="margin: 1ex; font-size: 2em; height: 1.5em; text-decoration: none;" onclick="export_log();">⚙️</a>
 	<textarea style="z-index: 300; position: fixed; margin: 2em; background-color: seagreen; display:none;" id="log"></textarea>
