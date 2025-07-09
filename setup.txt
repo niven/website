@@ -12,6 +12,7 @@ dig TXT _acme-challenge.interdictor.org
 Make an nging.conf file ( dump the binary and conf in /nginx)
 events { }
 http {
+    include	/nginx/mime.types;
     server {
 	listen			80;
 	server_name		www.interdictor.org interdictor.org;
@@ -33,6 +34,22 @@ http {
     }
 }
 nginx -t
+
+make 
+[root@interdictor nginx]# cat mime.types
+types {
+    text/html                                        html;
+    text/css                                         css;
+    application/javascript                           js;
+
+    image/gif                                        gif;
+    image/jpeg                                       jpeg jpg;
+    image/png                                        png;
+
+    text/plain                                       txt;
+
+}
+
 
 scp the website to /website (don't copy all the .git crap)
 
