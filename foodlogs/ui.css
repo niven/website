@@ -1,0 +1,96 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif, Arial, Verdana;;
+	font-size: 32px;
+	color: #424242;
+	background-color: #F5F5F5;
+}
+h1 {
+	font-size: 52px;
+	padding: 0.2em;
+}
+body {
+	display: flex;
+	padding: 0.5em;
+}
+
+#content {
+	margin-top: 0.2em;
+	margin-left: 0.5em;
+	width: 70%;	
+}
+
+p#description {
+	margin: 1em 0;
+}
+
+ul, ol {
+	list-style: none;
+}
+ol#ratings li, ul#allergens li {
+	display: inline;
+	font-size: 40px;
+}
+
+ul#foods li {
+	font-size: 32px;
+	font-weight: bold;
+	padding: 0.5em;
+	margin: 0.2em 0;
+	background-color: #48CFCB;	
+}
+ul#foods li.selected, h1 {
+	color: #F5F5F5;
+	background-color: #229799;
+}
+
+ol#ratings {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	background-color: #229799;
+	border-radius: 0.5ex;
+}
+
+ol#ratings li {
+	text-align: center;
+	flex: auto;
+	background-color: #229799;
+	border-radius: 0.5ex;
+}
+
+ol#ratings li.check {
+	background-color: #48CFCB;
+}
+
+div#location {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+div.tap {
+	flex: none;
+	background-color: #48CFCB;
+	display: inline-block;
+	margin: 1ex 0;
+	padding: 0.5ex;
+	border: 1px solid #48CFCB;
+	border-radius: 10px;
+}
+textarea#notes {
+	width: 100%;
+	margin: 1ex 0;
+	border: 1px solid #888; 
+}
+
+a {
+	font-size: 40px;
+	text-decoration: none;
+}
+
+a#cog {
+	display: block;
+}
+
+
