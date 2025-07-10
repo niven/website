@@ -6,10 +6,27 @@
 	color: #424242;
 	background-color: #F5F5F5;
 }
+
+ul#foods li.selected {
+	background: linear-gradient(to top right, #E7A274, 10%, #F5F5F5);
+}
+
+ol#ratings li, div.tap, h1 {
+	background-color: rgba(231, 162, 116, 70%);
+}
+ol#ratings li {
+	background-color: #F3EDCE;
+}
+ol#ratings li.check {
+	background-color: rgba(231, 162, 116, 70%);
+}
+
+
 h1 {
 	font-size: 52px;
 	padding: 0.2em;
 }
+
 body {
 	display: flex;
 	padding: 0.5em;
@@ -18,7 +35,8 @@ body {
 #content {
 	margin-top: 0.2em;
 	margin-left: 0.5em;
-	width: 70%;	
+	width: 70%;
+	display: none;
 }
 
 p#description {
@@ -37,33 +55,31 @@ ul#foods li {
 	font-size: 32px;
 	font-weight: bold;
 	padding: 0.5em;
-	margin: 0.2em 0;
-	background-color: #48CFCB;	
+	border-top: 1px solid darkgrey;
 }
-ul#foods li.selected, h1 {
-	color: #F5F5F5;
-	background-color: #229799;
+ul#foods li:first-child {
+	border-top: 0;
 }
 
 ol#ratings {
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
-	background-color: #229799;
 	border-radius: 0.5ex;
 }
 
 ol#ratings li {
 	text-align: center;
 	flex: auto;
-	background-color: #229799;
-	border-radius: 0.5ex;
 }
-
-ol#ratings li.check {
-	background-color: #48CFCB;
+ol#ratings li:first-child {
+	border-top-left-radius: 0.5ex;	
+	border-bottom-left-radius: 0.5ex;	
 }
-
+ol#ratings li:last-child {
+	border-top-right-radius: 0.5ex;
+	border-bottom-right-radius: 0.5ex;	
+}
 div#location {
 	display: flex;
 	justify-content: space-between;
@@ -71,11 +87,9 @@ div#location {
 }
 div.tap {
 	flex: none;
-	background-color: #48CFCB;
 	display: inline-block;
 	margin: 1ex 0;
 	padding: 0.5ex;
-	border: 1px solid #48CFCB;
 	border-radius: 10px;
 }
 textarea#notes {

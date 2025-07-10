@@ -1,3 +1,37 @@
+const main_tmpl = `
+	<div style="height: 90vh; overflow: auto;">
+		<ul id="foods" onclick="select_food(); return false;"></ul>
+		<template id="food">
+	  		<li></li>
+		</template>
+		<a href="#" id="cog" onclick="export_log(); return false;">⚙️</a>
+	</div>
+
+	<div id="content">
+		<h1 id="name">Select food</h1>
+		<ul id="allergens">
+			<li id="egg">🥚</li>
+			<li id="gluten">🌾</li>
+			<li id="lactose">🥛</li>
+			<li id="nuts">🥜</li>
+			<li id="shellfish">🦐</li>
+		</ul>
+		<p id="description">...</p>
+		<ol id="ratings" onclick="rate(event);">
+			<li id="r_0">🤢</li>
+			<li id="r_1">😕</li>
+			<li id="r_2">😐</li>
+			<li id="r_3">🤤</li>
+			<li id="r_4">😍</li>
+		</ol>
+		<textarea id="notes" onchange="save_note();" rows="5" placeholder="Where did you eat, what did you think?"></textarea>
+		<div id="location">
+			<div class="tap" href="#" id="pin" onclick="get_location(); return false;">📍 Save location</div>
+			<div class="tap" id="maplink"></div>
+		</div>
+	</div>
+`;
+
 const fake_loc = {
 	"coords": {
 		"longitude": 0,
@@ -17,6 +51,11 @@ const allergen_map = {
 let food_list, current_food, fn, fd, fa, fr, food_index, notes, ratings;
 function init() {
 	document.title = title;
+
+	const t = document.createElement('template');
+    t.innerHTML = main_tmpl;
+	document.querySelector("body").appendChild(t.content);
+
 	food_list = document.querySelector("#foods");
 	fn = document.querySelector("#name");
 	fd = document.querySelector("#description");
@@ -45,6 +84,7 @@ function toggle_current() {
 	}
 }
 function select_food() {
+	document.querySelector("#content").style.display = "block";
 	toggle_current();
 	food_index = event.target.value;
 	notes.value = "";
