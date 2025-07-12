@@ -12,9 +12,11 @@ const main_tmpl = `
 		<ul id="allergens">
 			<li id="beef">🐄</li>
 			<li id="chicken">🐓</li>
+			<li id="duck">🦆</li>
 			<li id="egg">🥚</li>
 			<li id="fish">🐟</li>
 			<li id="gluten">🌾</li>
+			<li id="mutton">🐑</li>
 			<li id="lactose">🥛</li>
 			<li id="nuts">🥜</li>
 			<li id="pork">🐖</li>
@@ -47,10 +49,12 @@ const fake_loc = {
 const allergen_map = {
 	"B": "beef",
 	"C": "chicken",
+	"D": "duck",
 	"E": "egg",
 	"F": "fish",
 	"G": "gluten",
 	"L": "lactose",
+	"M": "mutton",
 	"N": "nuts",
 	"P": "pork",
 	"S": "shellfish"
