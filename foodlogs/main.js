@@ -10,6 +10,7 @@ const main_tmpl = `
 	<div id="content">
 		<h1 id="name">Select food</h1>
 		<ul id="allergens">
+			<li id="alcohol">🍷</li>
 			<li id="beef">🐄</li>
 			<li id="chicken">🐓</li>
 			<li id="duck">🦆</li>
@@ -21,6 +22,7 @@ const main_tmpl = `
 			<li id="nuts">🥜</li>
 			<li id="pork">🐖</li>
 			<li id="shellfish">🦐</li>
+			<li id="spicy">🌶️</li>
 		</ul>
 		<p id="description">...</p>
 		<ol id="ratings" onclick="rate(event);">
@@ -47,6 +49,7 @@ const fake_loc = {
 };
 
 const allergen_map = {
+	"A": "alcohol",
 	"B": "beef",
 	"C": "chicken",
 	"D": "duck",
@@ -57,7 +60,8 @@ const allergen_map = {
 	"M": "mutton",
 	"N": "nuts",
 	"P": "pork",
-	"S": "shellfish"
+	"S": "shellfish",
+	"X": "spicy"
 };
 
 let food_list, current_food, fn, fd, fa, fr, food_index, notes, ratings;
