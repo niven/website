@@ -88,6 +88,9 @@ function init() {
 		let li = template.content.cloneNode(true).querySelector("li");;
 		li.id = `food_${f.id}`;
 		li.value = f.id;
+		if( retrieve(f.id, "rating") ) {
+			li.classList.add("rated");
+		}
 		li.appendChild( document.createTextNode(f.name) );
 		food_list.appendChild( li );
 	});
@@ -96,7 +99,11 @@ function init() {
 function toggle_current() {
 	if( current_food ) {
 		let food = document.querySelector("#food_" + current_food.id);
-		food.setAttribute("class", food.getAttribute("class") == "selected" ? "" : "selected" );
+		if( food.classList.contains("selected") ) {
+			food.classList.remove("selected");
+		} else {
+			food.classList.add("selected");
+		}
 	}
 }
 function select_food() {
@@ -142,6 +149,9 @@ function save_note() {
 }
 
 function rate( event ) {
+	if( food_index ) {
+		document.querySelector("#food_" + food_index).classList.add("rated");
+	}
 	store( "rating", event.target.id );
 	check_rating(event.target.id);
 }

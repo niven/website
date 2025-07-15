@@ -10,6 +10,9 @@
 ul#foods li.selected {
 	background: linear-gradient(to top right, #E7A274, 10%, #F5F5F5);
 }
+ul#foods li.rated {
+	border-left-color: green;
+}
 
 ol#ratings li, div.tap, h1 {
 	background-color: rgba(231, 162, 116, 70%);
@@ -55,7 +58,9 @@ ul#foods li {
 	font-size: 32px;
 	font-weight: bold;
 	padding: 0.5em;
+	margin-right: 0.5em;
 	border-top: 1px solid darkgrey;
+	border-left: 0.2em solid transparent;
 }
 ul#foods li:first-child {
 	border-top: 0;
