@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz Time!</title>
+<script type="text/javascript" src="quiz.js"></script>
+<script type="text/javascript" src="quiz_eco_0.js"></script>
+<link rel="stylesheet" type="text/css" href="quiz.css">
+</head>
+<body onload="main();">
+
+
+<div id="menu">
+	<h1 id="progress">Select a quiz to start</h1>
+	
+	<ul id="quiz_selector" onclick="render_quiz();"></ul>
+	<template id="template_quiz_item">
+		<li></li>
+	</template>
+</div>
+
+<div id="qa">
+
+<span id="question">Question placeholder</span>
+<div id="answer">Answer placeholder</div>
+
+<div id="controls">
+	<button onclick="question(-1);">PREV</button>
+	<button onclick="question(+1);">NEXT</button>
+</div>
+</div>
+
+<div id="teams">
+	<h1>Players</h1>
+	<ul id="players"></ul>
+	<template id="template_player">
+		<li score="0"><span class="score">0</span><input type="text" placeholder="NAME" onkeyup="recolor_trigger();"> <a onclick="score_add_trigger(1); return false;">🔼</a>&nbsp;&nbsp;&nbsp;<a onclick="score_add_trigger(-1); return false;">🔽</a></li>
+	</template>
+	<button onclick="add_player();">+ Add player</button>
+</div>
+
+
+</body>
+</html>

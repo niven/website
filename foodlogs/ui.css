@@ -14,7 +14,7 @@ ul#foods li.rated {
 	border-left-color: green;
 }
 
-ol#ratings li, div.tap, h1 {
+ol#ratings li, div.tap, h1, ul#filter_labels li.on {
 	background-color: rgba(231, 162, 116, 70%);
 }
 ol#ratings li {
@@ -35,6 +35,12 @@ body {
 	padding: 0.5em;
 }
 
+#left {
+	display: flex;
+	flex-direction: column;
+}
+
+
 #content {
 	margin-top: 0.2em;
 	margin-left: 0.5em;
@@ -49,10 +55,23 @@ p#description {
 ul, ol {
 	list-style: none;
 }
-ol#ratings li, ul#allergens li {
+ol#ratings li, ul#food_labels li, ul#filter_labels li {
 	display: inline;
 	font-size: 40px;
 }
+
+#filter_labels {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+ul#filter_labels li {
+	display: flex;
+	padding: 0.2em;
+	border-radius: 0.1em;
+	margin-right: 0.1em;
+}
+
 
 ul#foods li {
 	font-size: 32px;

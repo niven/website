@@ -1,5 +1,10 @@
 const main_tmpl = `
-	<div style="height: 90vh; overflow: auto;">
+	<div id="left" style="height: 90vh; overflow: auto;">
+		<ul id="filter_labels" onclick="select_filter(); return false;">
+		</ul>
+		<template id="label">
+	  		<li></li>
+		</template>
 		<ul id="foods" onclick="select_food(); return false;"></ul>
 		<template id="food">
 	  		<li></li>
@@ -9,20 +14,7 @@ const main_tmpl = `
 
 	<div id="content">
 		<h1 id="name">Select food</h1>
-		<ul id="allergens">
-			<li id="alcohol">🍷</li>
-			<li id="beef">🐄</li>
-			<li id="chicken">🐓</li>
-			<li id="duck">🦆</li>
-			<li id="egg">🥚</li>
-			<li id="fish">🐟</li>
-			<li id="gluten">🌾</li>
-			<li id="mutton">🐑</li>
-			<li id="lactose">🥛</li>
-			<li id="nuts">🥜</li>
-			<li id="pork">🐖</li>
-			<li id="shellfish">🦐</li>
-			<li id="spicy">🌶️</li>
+		<ul id="food_labels">
 		</ul>
 		<p id="description">...</p>
 		<ol id="ratings" onclick="rate(event);">
@@ -48,23 +40,23 @@ const fake_loc = {
 	}
 };
 
-const allergen_map = {
-	"A": "alcohol",
-	"B": "beef",
-	"C": "chicken",
-	"D": "duck",
-	"E": "egg",
-	"F": "fish",
-	"G": "gluten",
-	"L": "lactose",
-	"M": "mutton",
-	"N": "nuts",
-	"P": "pork",
-	"S": "shellfish",
-	"X": "spicy"
+const label_map = {
+	"A": { "name": "alcohol", 	"icon": "🍷" },
+	"B": { "name": "beef", 		"icon": "🐄" },
+	"C": { "name": "chicken", 	"icon": "🐓" },
+	"D": { "name": "duck", 		"icon": "🦆" },
+	"E": { "name": "egg", 		"icon": "🥚" },
+	"F": { "name": "fish", 		"icon": "🐟" },
+	"G": { "name": "gluten", 	"icon": "🌾" },
+	"L": { "name": "lactose", 	"icon": "🥛" },
+	"M": { "name": "mutton", 	"icon": "🐑" },
+	"N": { "name": "nuts", 		"icon": "🥜" },
+	"P": { "name": "pork", 		"icon": "🐖" },
+	"S": { "name": "shellfish", "icon": "🦐" },
+	"X": { "name": "spicy", 	"icon": "🌶️" }
 };
 
-let food_list, current_food, fn, fd, fa, fr, food_index, notes, ratings;
+let food_list, food_labels, filter, filter_labels, current_food, fn, fd, fa, fr, food_index, notes, ratings;
 function init() {
 	document.title = title;
 
@@ -72,20 +64,38 @@ function init() {
     t.innerHTML = main_tmpl;
 	document.querySelector("body").appendChild(t.content);
 
+	filter_labels = document.querySelector("#filter_labels");
 	food_list = document.querySelector("#foods");
+	food_labels = document.querySelector("#food_labels");
 	fn = document.querySelector("#name");
 	fd = document.querySelector("#description");
 	fr = document.querySelector("#rating");
 	notes = document.querySelector("#notes");
 	ratings = document.querySelectorAll("#ratings li");
 	
-	for( const [key,value] of Object.entries(allergen_map) ) {
-		allergen_map[key] = document.querySelector("#allergens #"+value);
+	// Process all the labels:
+	// - Create an item for the filter
+	// - Add every label to the filter to initially show everything
+	// - Cfreate an item in the content field so it can be turned on/off later
+	const label_template = document.querySelector("#food");
+	filter = {};
+	for( const [key,value] of Object.entries(label_map) ) {
+		filter[key] = true;
+
+		let li = label_template.content.cloneNode(true).querySelector("li");
+		li.id = `label_${key}`;
+		li.appendChild( document.createTextNode(label_map[key].icon) );
+		food_labels.appendChild( li );
+
+		let filter_label = li.cloneNode(true);
+		filter_label.id= `filter_label_${key}`;
+		filter_label.setAttribute("label", key);
+		filter_labels.appendChild( filter_label );
 	}
 
 	const template = document.querySelector("#food");
 	foods.forEach( f => {
-		let li = template.content.cloneNode(true).querySelector("li");;
+		let li = template.content.cloneNode(true).querySelector("li");
 		li.id = `food_${f.id}`;
 		li.value = f.id;
 		if( retrieve(f.id, "rating") ) {
@@ -106,6 +116,41 @@ function toggle_current() {
 		}
 	}
 }
+
+
+function apply_filter() {
+	const active_label_count = Object.keys(filter).filter( f => filter[f] ).length;
+	foods.forEach( f => document.querySelector("#food_"+f.id).style.display = "none");
+	// Must match ALL filters, so iterate over the foods
+	foods.forEach( f => {
+		const count = f.allergens.split("").reduce( (acc, cur) => filter[cur] ? acc+1 : acc, 0);
+		if( count == active_label_count ) {
+			document.querySelector("#food_" + f.id).style.display = "block";
+		}
+	});
+}
+
+function select_filter() {
+	let filter_label_id = event.target.id;
+	let element = document.querySelector( "#"+filter_label_id );
+
+	if( element.classList.contains("on") ) {
+		element.classList.remove("on");
+		filter[element.getAttribute("label")] = false;
+	} else {
+		element.classList.add("on");
+		// If nothing is selected, then we show everything.
+		// In that case, first set everything to false
+		if( !Object.values(filter).includes(false) ) {
+			for( const key in filter ) {
+				filter[key] = false;
+			}
+		}
+		filter[element.getAttribute("label")] = true;
+	}
+	apply_filter();
+}
+
 function select_food() {
 	document.querySelector("#content").style.display = "block";
 	toggle_current();
@@ -118,7 +163,7 @@ function select_food() {
 	toggle_current();
 	fn.textContent = current_food.name;
 	fd.textContent = current_food.description;
-	set_allergens(current_food.allergens);
+	set_labels(current_food.allergens);
 
 	let note = retrieve( food_index, "note" );
 	if( note ) {
@@ -160,9 +205,9 @@ function check_rating(target) {
 	ratings.forEach( r => r.setAttribute("class", r.id == target ? "check" : "") );
 }
 
-function set_allergens( str ) {
-	for (const [key, value] of Object.entries(allergen_map)) {
-		value.style.display = str.includes(key) ? "inline" : "none";
+function set_labels( str ) {
+	for (const key of Object.keys(label_map)) {
+		document.querySelector("#label_" + key).style.display = str.includes(key) ? "inline" : "none";
 	}
 }
 

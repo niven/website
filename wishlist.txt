@@ -1,4 +1,4 @@
-# Boardgames
+# Boardgames that might be fun
 
 Arcs
 Skull
@@ -12,6 +12,9 @@ Cyclades
 El Dorado 
 Quacks of Quedlinburg / De Kwakzalvers van Kakelenburg €40
 Zoo Vadis
+Wroth
+Kinfire Council
+
 
 # Minis
 

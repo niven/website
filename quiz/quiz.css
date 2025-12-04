@@ -1,0 +1,90 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 5vw;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	background-color: black;
+	color: white;
+}
+
+h1 {
+	font-size: 8vw;
+	text-align: center;
+}
+
+#qa {
+	display: none;
+}
+
+#qa, #teams {
+	flex-direction: column;
+}
+#teams {
+	margin-top: 4vh;
+}
+#question {
+	padding: 2vw 2vh;
+	font-weight: bold;
+	height: 14vw;
+}
+#answer {
+	height: 20vh;
+	padding: 2vw 2vh;
+}
+
+.score {
+	font-family: monospace;
+	font-weight: bolder;
+	margin-right: 2vw;
+	font-size: 12vw;
+	display: inline-block;
+	width: 16vw;
+	color: black;
+
+}
+
+li {
+	display: block;
+}
+
+ul#players li {
+	text-align: center;
+}
+
+ul#quiz_selector li {
+	background-color: orange;
+	font-weight: bold;
+	font-size: 6vw;
+	text-align: center;
+}
+
+input {
+	font-weight: bold;
+	font-size: 8vw;
+	width: 50vw;
+}
+
+#controls {
+	display: flex;
+	flex-direction: row;
+}
+
+button {
+	flex: auto;
+	font-weight: bold;
+	font-size: 6vw;
+	padding: 0.5vw 0.5vh;
+}
+
+#button_add button {
+	margin-top: 2vh;
+}
+
+li a {
+	margin-left: 0.5vw;
+	font-size: 12vw;
+}
